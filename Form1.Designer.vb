@@ -57,7 +57,7 @@ Partial Class Form1
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(12, 9)
+        Me.LinkLabel2.Location = New System.Drawing.Point(9, 9)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(72, 13)
         Me.LinkLabel2.TabIndex = 64
@@ -182,7 +182,7 @@ Partial Class Form1
         Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(108, 334)
         Me.RichTextBoxHTTPresponse.Name = "RichTextBoxHTTPresponse"
         Me.RichTextBoxHTTPresponse.ReadOnly = True
-        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(178, 21)
+        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(175, 21)
         Me.RichTextBoxHTTPresponse.TabIndex = 48
         Me.RichTextBoxHTTPresponse.Text = ""
         '
@@ -198,7 +198,7 @@ Partial Class Form1
         'TextBoxPassword
         '
         Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "savePassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPassword.Location = New System.Drawing.Point(15, 308)
+        Me.TextBoxPassword.Location = New System.Drawing.Point(12, 308)
         Me.TextBoxPassword.Name = "TextBoxPassword"
         Me.TextBoxPassword.Size = New System.Drawing.Size(271, 20)
         Me.TextBoxPassword.TabIndex = 46
@@ -208,7 +208,7 @@ Partial Class Form1
         'TextBoxEmail
         '
         Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "saveEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxEmail.Location = New System.Drawing.Point(15, 269)
+        Me.TextBoxEmail.Location = New System.Drawing.Point(12, 269)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(271, 20)
         Me.TextBoxEmail.TabIndex = 45
@@ -250,7 +250,7 @@ Partial Class Form1
         'ComboBoxAcctype
         '
         Me.ComboBoxAcctype.FormattingEnabled = True
-        Me.ComboBoxAcctype.Location = New System.Drawing.Point(15, 229)
+        Me.ComboBoxAcctype.Location = New System.Drawing.Point(12, 229)
         Me.ComboBoxAcctype.Name = "ComboBoxAcctype"
         Me.ComboBoxAcctype.Size = New System.Drawing.Size(184, 21)
         Me.ComboBoxAcctype.TabIndex = 44

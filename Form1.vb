@@ -451,6 +451,14 @@ ErrorLoop:
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
 
         Dim ask As MsgBoxResult = MsgBox("Open BT Wi-Fi Map?", MsgBoxStyle.YesNo)
+        If ask = MsgBoxResult.Yes Then
+            Try
+                Dim url As String = “https://info.btwifi.com:442/find/“
+                Process.Start(url)
+            Catch ex As Exception
+                MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+            End Try
+        End If
 
     End Sub
 

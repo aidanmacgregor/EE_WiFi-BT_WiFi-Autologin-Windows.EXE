@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AboutBox1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -37,6 +37,7 @@ Partial Class AboutBox1
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -44,7 +45,7 @@ Partial Class AboutBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(154, 158)
         Me.PictureBox1.TabIndex = 0
@@ -126,7 +127,7 @@ Partial Class AboutBox1
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(55, 173)
+        Me.LinkLabel1.Location = New System.Drawing.Point(54, 196)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(51, 13)
         Me.LinkLabel1.TabIndex = 9
@@ -136,7 +137,7 @@ Partial Class AboutBox1
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(9, 173)
+        Me.LinkLabel2.Location = New System.Drawing.Point(8, 196)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(40, 13)
         Me.LinkLabel2.TabIndex = 10
@@ -146,7 +147,7 @@ Partial Class AboutBox1
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
-        Me.LinkLabel3.Location = New System.Drawing.Point(112, 173)
+        Me.LinkLabel3.Location = New System.Drawing.Point(111, 196)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(55, 13)
         Me.LinkLabel3.TabIndex = 11
@@ -156,7 +157,7 @@ Partial Class AboutBox1
         'LinkLabel4
         '
         Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.Location = New System.Drawing.Point(173, 173)
+        Me.LinkLabel4.Location = New System.Drawing.Point(172, 196)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(51, 13)
         Me.LinkLabel4.TabIndex = 12
@@ -166,19 +167,29 @@ Partial Class AboutBox1
         'LinkLabel5
         '
         Me.LinkLabel5.AutoSize = True
-        Me.LinkLabel5.Location = New System.Drawing.Point(230, 173)
+        Me.LinkLabel5.Location = New System.Drawing.Point(229, 196)
         Me.LinkLabel5.Name = "LinkLabel5"
         Me.LinkLabel5.Size = New System.Drawing.Size(74, 13)
         Me.LinkLabel5.TabIndex = 13
         Me.LinkLabel5.TabStop = True
         Me.LinkLabel5.Text = "Other Projects"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(172, 168)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(130, 23)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Donate!"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'AboutBox1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(314, 195)
+        Me.ClientSize = New System.Drawing.Size(314, 218)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.LinkLabel5)
         Me.Controls.Add(Me.LinkLabel4)
         Me.Controls.Add(Me.LinkLabel3)
@@ -221,4 +232,5 @@ Partial Class AboutBox1
     Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents LinkLabel4 As LinkLabel
     Friend WithEvents LinkLabel5 As LinkLabel
+    Friend WithEvents Button1 As Button
 End Class

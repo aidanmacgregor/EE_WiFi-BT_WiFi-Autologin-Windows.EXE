@@ -49,6 +49,7 @@ Partial Class Form1
         Me.ComboBoxAcctype = New System.Windows.Forms.ComboBox()
         Me.TextBoxLoginCount = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.ButtonAbout = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -56,7 +57,7 @@ Partial Class Form1
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(12, 360)
+        Me.LinkLabel2.Location = New System.Drawing.Point(12, 9)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(72, 13)
         Me.LinkLabel2.TabIndex = 64
@@ -132,7 +133,7 @@ Partial Class Form1
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(276, 360)
+        Me.LinkLabel1.Location = New System.Drawing.Point(276, 22)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(106, 13)
         Me.LinkLabel1.TabIndex = 54
@@ -222,9 +223,9 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-8, 5)
+        Me.PictureBox1.Location = New System.Drawing.Point(-8, 1)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(409, 205)
+        Me.PictureBox1.Size = New System.Drawing.Size(409, 209)
         Me.PictureBox1.TabIndex = 55
         Me.PictureBox1.TabStop = False
         '
@@ -275,12 +276,22 @@ Partial Class Form1
         Me.Label5.Text = "BT Wi-Fi Autologin Service v4"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'ButtonAbout
+        '
+        Me.ButtonAbout.Location = New System.Drawing.Point(331, 38)
+        Me.ButtonAbout.Name = "ButtonAbout"
+        Me.ButtonAbout.Size = New System.Drawing.Size(51, 23)
+        Me.ButtonAbout.TabIndex = 65
+        Me.ButtonAbout.Text = "About"
+        Me.ButtonAbout.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(391, 382)
+        Me.ClientSize = New System.Drawing.Size(391, 365)
+        Me.Controls.Add(Me.ButtonAbout)
         Me.Controls.Add(Me.LinkLabel2)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
@@ -340,4 +351,5 @@ Partial Class Form1
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents ComboBoxAcctype As ComboBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents ButtonAbout As Button
 End Class

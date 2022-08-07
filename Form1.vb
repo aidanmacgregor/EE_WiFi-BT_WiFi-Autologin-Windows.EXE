@@ -452,15 +452,6 @@ ErrorLoop:
 
         Dim ask As MsgBoxResult = MsgBox("Open BT Wi-Fi Map?", MsgBoxStyle.YesNo)
 
-        If ask = MsgBoxResult.Yes Then
-            Try
-                Dim url As String = “https://info.btwifi.com:442/find/“
-                Process.Start(url)
-            Catch ex As Exception
-                MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING MAP--")
-            End Try
-        End If
-
     End Sub
 
 
@@ -490,5 +481,8 @@ ErrorLoop:
 
     End Sub
 
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
+        AboutBox1.Show()
+    End Sub
 End Class
 

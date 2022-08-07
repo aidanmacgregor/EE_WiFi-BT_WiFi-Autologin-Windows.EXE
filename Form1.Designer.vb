@@ -59,10 +59,10 @@ Partial Class Form1
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Location = New System.Drawing.Point(9, 9)
         Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(72, 13)
+        Me.LinkLabel2.Size = New System.Drawing.Size(55, 13)
         Me.LinkLabel2.TabIndex = 64
         Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "BT Wi-Fi Map"
+        Me.LinkLabel2.Text = "Wi-Fi Map"
         '
         'Label8
         '

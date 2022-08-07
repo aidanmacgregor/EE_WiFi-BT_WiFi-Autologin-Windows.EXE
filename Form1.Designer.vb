@@ -103,9 +103,9 @@ Partial Class Form1
         '
         'ButtonResetLogincount
         '
-        Me.ButtonResetLogincount.Location = New System.Drawing.Point(292, 330)
+        Me.ButtonResetLogincount.Location = New System.Drawing.Point(289, 334)
         Me.ButtonResetLogincount.Name = "ButtonResetLogincount"
-        Me.ButtonResetLogincount.Size = New System.Drawing.Size(90, 20)
+        Me.ButtonResetLogincount.Size = New System.Drawing.Size(89, 21)
         Me.ButtonResetLogincount.TabIndex = 58
         Me.ButtonResetLogincount.Text = "Reset Count"
         Me.ButtonResetLogincount.UseVisualStyleBackColor = True
@@ -113,7 +113,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(290, 288)
+        Me.Label7.Location = New System.Drawing.Point(289, 292)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 13)
         Me.Label7.TabIndex = 57
@@ -122,7 +122,7 @@ Partial Class Form1
         'checkboxAutorun
         '
         Me.checkboxAutorun.AutoSize = True
-        Me.checkboxAutorun.Location = New System.Drawing.Point(292, 266)
+        Me.checkboxAutorun.Location = New System.Drawing.Point(291, 269)
         Me.checkboxAutorun.Name = "checkboxAutorun"
         Me.checkboxAutorun.Size = New System.Drawing.Size(88, 17)
         Me.checkboxAutorun.TabIndex = 56
@@ -144,7 +144,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 337)
+        Me.Label4.Location = New System.Drawing.Point(9, 337)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 13)
         Me.Label4.TabIndex = 53
@@ -153,7 +153,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 292)
+        Me.Label2.Location = New System.Drawing.Point(9, 292)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 52
@@ -162,7 +162,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 253)
+        Me.Label1.Location = New System.Drawing.Point(9, 253)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 51
@@ -171,7 +171,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 213)
+        Me.Label3.Location = New System.Drawing.Point(9, 213)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 13)
         Me.Label3.TabIndex = 50
@@ -179,10 +179,10 @@ Partial Class Form1
         '
         'RichTextBoxHTTPresponse
         '
-        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(108, 334)
+        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(105, 334)
         Me.RichTextBoxHTTPresponse.Name = "RichTextBoxHTTPresponse"
         Me.RichTextBoxHTTPresponse.ReadOnly = True
-        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(175, 21)
+        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(178, 21)
         Me.RichTextBoxHTTPresponse.TabIndex = 48
         Me.RichTextBoxHTTPresponse.Text = ""
         '
@@ -259,7 +259,7 @@ Partial Class Form1
         '
         Me.TextBoxLoginCount.Cursor = System.Windows.Forms.Cursors.Default
         Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxLoginCount.Location = New System.Drawing.Point(293, 304)
+        Me.TextBoxLoginCount.Location = New System.Drawing.Point(289, 308)
         Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
         Me.TextBoxLoginCount.ReadOnly = True
         Me.TextBoxLoginCount.Size = New System.Drawing.Size(89, 20)
@@ -278,9 +278,9 @@ Partial Class Form1
         '
         'ButtonAbout
         '
-        Me.ButtonAbout.Location = New System.Drawing.Point(331, 38)
+        Me.ButtonAbout.Location = New System.Drawing.Point(338, 38)
         Me.ButtonAbout.Name = "ButtonAbout"
-        Me.ButtonAbout.Size = New System.Drawing.Size(51, 23)
+        Me.ButtonAbout.Size = New System.Drawing.Size(44, 23)
         Me.ButtonAbout.TabIndex = 65
         Me.ButtonAbout.Text = "About"
         Me.ButtonAbout.UseVisualStyleBackColor = True

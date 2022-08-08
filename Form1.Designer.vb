@@ -105,7 +105,7 @@ Partial Class Form1
         '
         Me.ButtonResetLogincount.Location = New System.Drawing.Point(289, 334)
         Me.ButtonResetLogincount.Name = "ButtonResetLogincount"
-        Me.ButtonResetLogincount.Size = New System.Drawing.Size(89, 21)
+        Me.ButtonResetLogincount.Size = New System.Drawing.Size(93, 21)
         Me.ButtonResetLogincount.TabIndex = 58
         Me.ButtonResetLogincount.Text = "Reset Count"
         Me.ButtonResetLogincount.UseVisualStyleBackColor = True
@@ -122,7 +122,7 @@ Partial Class Form1
         'checkboxAutorun
         '
         Me.checkboxAutorun.AutoSize = True
-        Me.checkboxAutorun.Location = New System.Drawing.Point(291, 269)
+        Me.checkboxAutorun.Location = New System.Drawing.Point(292, 266)
         Me.checkboxAutorun.Name = "checkboxAutorun"
         Me.checkboxAutorun.Size = New System.Drawing.Size(88, 17)
         Me.checkboxAutorun.TabIndex = 56
@@ -262,7 +262,7 @@ Partial Class Form1
         Me.TextBoxLoginCount.Location = New System.Drawing.Point(289, 308)
         Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
         Me.TextBoxLoginCount.ReadOnly = True
-        Me.TextBoxLoginCount.Size = New System.Drawing.Size(89, 20)
+        Me.TextBoxLoginCount.Size = New System.Drawing.Size(92, 20)
         Me.TextBoxLoginCount.TabIndex = 61
         Me.TextBoxLoginCount.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.SaveLoginCount
         '

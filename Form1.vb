@@ -77,6 +77,9 @@ Public Class Form1
 
         If ButtonStartStop.Text = "Start Service" Then
 
+            '' Sleep To Ensure Enough Time For Thread To Initalise Before Stopping (Dont Know If Nesicerry But Seems Like Good Idea)
+            Threading.Thread.Sleep(1000)
+
             '' Change Button Function
             ButtonStartStop.Text = "Stop Service"
 
@@ -121,13 +124,13 @@ ErrorLoop:
 
                 If My.Computer.Network.Ping("1.1.1.1") = False Then
 
-                    '' Internet Status "LED"
-                    ButtonInternetStatus.BackColor = Color.Red
-
                     '' Wait Before Testing Internet Again (May Help Reduce Any False Positives)
                     Threading.Thread.Sleep(500)
 
                     If My.Computer.Network.Ping("8.8.8.8") = False Then
+
+                        '' Internet Status "LED"
+                        ButtonInternetStatus.BackColor = Color.Red
 
                         '' Clear HTTP Request
                         RichTextBoxHTTPresponse.Clear()
@@ -247,7 +250,6 @@ ErrorLoop:
                 Else
                     ''Green Internet Status If Ping Sucsessful
                     ButtonInternetStatus.BackColor = Color.Green
-
                 End If
 
             Catch ex As Exception  '' This Exeption Cathes Ping Failing & DNS ERRORS
@@ -471,11 +473,15 @@ ErrorLoop:
 
     End Sub
 
+
+
     Private Sub TextBoxEmail_TextChanged(sender As Object, e As EventArgs) Handles TextBoxEmail.TextChanged
 
         My.Settings.saveEmail = TextBoxEmail.Text
 
     End Sub
+
+
 
     Private Sub TextBoxPassword_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPassword.TextChanged
 
@@ -483,11 +489,15 @@ ErrorLoop:
 
     End Sub
 
+
+
     Private Sub TextBoxLoginCount_TextChanged(sender As Object, e As EventArgs) Handles TextBoxLoginCount.TextChanged
 
         My.Settings.SaveLoginCount = TextBoxLoginCount.Text
 
     End Sub
+
+
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
         AboutBox1.Show()

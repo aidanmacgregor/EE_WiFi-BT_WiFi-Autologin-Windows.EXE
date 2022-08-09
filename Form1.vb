@@ -19,7 +19,6 @@ Public Class Form1
     Private ReadOnly MyBackgroundWorker As New System.ComponentModel.BackgroundWorker
 
 
-
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '' Hide Crossthreading Error
         CheckForIllegalCrossThreadCalls = False
@@ -73,7 +72,6 @@ Public Class Form1
     End Sub
 
 
-
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonStartStop.Click
 
         If ButtonStartStop.Text = "Start Service" Then
@@ -106,7 +104,6 @@ Public Class Form1
         End If
 
     End Sub
-
 
 
     Private Sub MyBackgroundWorker_Login_Loop(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
@@ -293,7 +290,6 @@ ErrorLoop:
     End Sub
 
 
-
     Private Sub MyBackgroundWorker_Completed(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs)
 
         RichTextBoxHTTPresponse.Clear()
@@ -360,7 +356,6 @@ ErrorLoop:
     End Sub
 
 
-
     '' Handle Login Count Reset Button
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles ButtonResetLogincount.Click
 
@@ -397,13 +392,11 @@ ErrorLoop:
     End Sub
 
 
-
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
 
         AboutBox1.Show()
 
     End Sub
-
 
 
     '' While closing the program, Handles Minimising On [X]
@@ -413,9 +406,7 @@ ErrorLoop:
         Me.WindowState = FormWindowState.Minimized
         e.Cancel = True
 
-
     End Sub
-
 
 
     '' Handle The Minimize To Tray Function
@@ -446,14 +437,12 @@ ErrorLoop:
     End Sub
 
 
-
     '' Handle Context Menu Exit (Right CLick System Tray > Exit)
     Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
 
         Application.ExitThread()
 
     End Sub
-
 
 
     Private Sub ComboBoxAcctype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxAcctype.DropDownClosed
@@ -464,14 +453,12 @@ ErrorLoop:
     End Sub
 
 
-
     Private Sub TextBoxEmail_TextChanged(sender As Object, e As EventArgs) Handles TextBoxEmail.TextChanged
 
         My.Settings.saveEmail = TextBoxEmail.Text
         My.Settings.Save()
 
     End Sub
-
 
 
     Private Sub TextBoxPassword_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPassword.TextChanged
@@ -482,14 +469,12 @@ ErrorLoop:
     End Sub
 
 
-
     Private Sub TextBoxLoginCount_TextChanged(sender As Object, e As EventArgs) Handles TextBoxLoginCount.TextChanged
 
         My.Settings.SaveLoginCount = TextBoxLoginCount.Text
         My.Settings.Save()
 
     End Sub
-
 
 
     Private Sub checkboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxAutorun.CheckedChanged
@@ -508,7 +493,6 @@ ErrorLoop:
         End If
 
     End Sub
-
 
 
 End Class

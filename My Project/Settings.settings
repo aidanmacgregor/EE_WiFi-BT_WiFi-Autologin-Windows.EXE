@@ -8,7 +8,7 @@
     <Setting Name="savePassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="saveAccType" Type="System.Int32" Scope="User">
+    <Setting Name="saveAccType" GenerateDefaultValueInCode="false" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SaveLoginCount" Type="System.String" Scope="User">

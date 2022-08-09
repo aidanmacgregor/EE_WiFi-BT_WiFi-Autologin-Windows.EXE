@@ -188,7 +188,6 @@ Partial Class Form1
         '
         'ButtonStartStop
         '
-        Me.ButtonStartStop.Enabled = False
         Me.ButtonStartStop.Location = New System.Drawing.Point(292, 216)
         Me.ButtonStartStop.Name = "ButtonStartStop"
         Me.ButtonStartStop.Size = New System.Drawing.Size(90, 44)
@@ -245,7 +244,7 @@ Partial Class Form1
         Me.ComboBoxAcctype.Location = New System.Drawing.Point(12, 229)
         Me.ComboBoxAcctype.Name = "ComboBoxAcctype"
         Me.ComboBoxAcctype.Size = New System.Drawing.Size(184, 21)
-        Me.ComboBoxAcctype.TabIndex = 44
+        Me.ComboBoxAcctype.TabIndex = 0
         '
         'TextBoxLoginCount
         '

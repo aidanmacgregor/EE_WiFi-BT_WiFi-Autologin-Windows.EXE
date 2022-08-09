@@ -55,21 +55,20 @@ Public Class Form1
         '' Check For AutoRun Registery Key, Mark Checkbox & Start Service if key is present
         If CStr(regKey.GetValue(applicationName)) = """" & applicationPath & """" Then
             checkboxAutorun.Checked = True
-            Me.ButtonStartStop.PerformClick()
         Else
             checkboxAutorun.Checked = False
         End If
         regKey.Close()
 
+        '' Enable & set button text
+        ButtonStartStop.Text = "Start Service"
+
         '' Check For Autorun & Minimise On Startup
         If checkboxAutorun.Checked = True Then
+            Me.ButtonStartStop.PerformClick()
             Me.WindowState = FormWindowState.Minimized
             Me.ShowInTaskbar = False
         End If
-
-        '' Enable & set button text
-        ButtonStartStop.Enabled = True
-        ButtonStartStop.Text = "Start Service"
 
     End Sub
 
@@ -111,7 +110,6 @@ Public Class Form1
 
 
     Private Sub MyBackgroundWorker_Login_Loop(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
-
         '' Label To Loop Back To On Exeption
 ErrorLoop:
 
@@ -362,105 +360,6 @@ ErrorLoop:
     End Sub
 
 
-    '' Handle The Minimize To Tray Function
-    Private Sub Form1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
-
-        If Me.WindowState = FormWindowState.Minimized Then
-            Me.Visible = False
-        End If
-
-    End Sub
-
-
-    '' Handle The Double Click (OPEN) Of The System Tray Icon (Add In [DESIGN] page to form)
-    Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
-
-        Me.Visible = True
-        Me.WindowState = FormWindowState.Normal
-
-    End Sub
-
-
-    '' Handle Context Menu Open (Right CLick System Tray > Open)
-    Private Sub ContextOpen_Click(sender As Object, e As EventArgs) Handles contextOpen.Click
-
-        Me.Visible = True
-        Me.WindowState = FormWindowState.Normal
-
-    End Sub
-
-
-    '' Handle Context Menu Exit (Right CLick System Tray > Exit)
-    Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
-        Try
-
-            '' ComboBox Save Settings (System - Settings - Integer)
-            My.Settings.saveAccType = ComboBoxAcctype.SelectedIndex
-            My.Settings.saveEmail = TextBoxEmail.Text
-            My.Settings.savePassword = TextBoxPassword.Text
-            My.Settings.SaveLoginCount = TextBoxLoginCount.Text
-
-            'Set Or Remove registry key to Autorun application if checkbox is checked
-            If checkboxAutorun.Checked Then
-                Dim regKey As Microsoft.Win32.RegistryKey
-                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                regKey.SetValue(applicationName, """" & applicationPath & """")
-                regKey.Close()
-            Else
-                Dim regKey As Microsoft.Win32.RegistryKey
-                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                regKey.DeleteValue(applicationName, False)
-                regKey.Close()
-            End If
-
-            Environment.Exit(0)
-
-        Catch ex As Exception
-
-            MessageBox.Show("Error During Close, Data May NOT Be Saved")
-            Environment.Exit(0)
-
-        End Try
-
-    End Sub
-
-
-    '' While closing the program, Handles The Saving Of ComboBox & Autorun...
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-
-        Try
-
-            Me.WindowState = FormWindowState.Minimized
-            e.Cancel = True
-
-            '' ComboBox Save Settings (System - Settings - Integer)
-            My.Settings.saveAccType = ComboBoxAcctype.SelectedIndex
-            My.Settings.saveEmail = TextBoxEmail.Text
-            My.Settings.savePassword = TextBoxPassword.Text
-            My.Settings.SaveLoginCount = TextBoxLoginCount.Text
-
-            'Set Or Remove registry key to Autorun application if checkbox is checked
-            If checkboxAutorun.Checked Then
-                Dim regKey As Microsoft.Win32.RegistryKey
-                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                regKey.SetValue(applicationName, """" & applicationPath & """")
-                regKey.Close()
-            Else
-                Dim regKey As Microsoft.Win32.RegistryKey
-                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                regKey.DeleteValue(applicationName, False)
-                regKey.Close()
-            End If
-
-
-        Catch ex As Exception
-
-            MessageBox.Show("Error During Close, Data May NOT Be Saved")
-
-        End Try
-
-    End Sub
-
 
     '' Handle Login Count Reset Button
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles ButtonResetLogincount.Click
@@ -507,9 +406,69 @@ ErrorLoop:
 
 
 
+    '' While closing the program, Handles Minimising On [X]
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+        '' Close Disable & Minimise To Tray
+        Me.WindowState = FormWindowState.Minimized
+        e.Cancel = True
+
+
+    End Sub
+
+
+
+    '' Handle The Minimize To Tray Function
+    Private Sub Form1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+
+        If Me.WindowState = FormWindowState.Minimized Then
+            Me.Visible = False
+        End If
+
+    End Sub
+
+
+    '' Handle The Double Click (OPEN) Of The System Tray Icon (Add In [DESIGN] page to form)
+    Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+
+        Me.Visible = True
+        Me.WindowState = FormWindowState.Normal
+
+    End Sub
+
+
+    '' Handle Context Menu Open (Right CLick System Tray > Open)
+    Private Sub ContextOpen_Click(sender As Object, e As EventArgs) Handles contextOpen.Click
+
+        Me.Visible = True
+        Me.WindowState = FormWindowState.Normal
+
+    End Sub
+
+
+
+    '' Handle Context Menu Exit (Right CLick System Tray > Exit)
+    Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
+
+        Application.ExitThread()
+
+    End Sub
+
+
+
+    Private Sub ComboBoxAcctype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxAcctype.DropDownClosed
+
+        My.Settings.saveAccType = ComboBoxAcctype.SelectedIndex
+        My.Settings.Save()
+
+    End Sub
+
+
+
     Private Sub TextBoxEmail_TextChanged(sender As Object, e As EventArgs) Handles TextBoxEmail.TextChanged
 
         My.Settings.saveEmail = TextBoxEmail.Text
+        My.Settings.Save()
 
     End Sub
 
@@ -518,6 +477,7 @@ ErrorLoop:
     Private Sub TextBoxPassword_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPassword.TextChanged
 
         My.Settings.savePassword = TextBoxPassword.Text
+        My.Settings.Save()
 
     End Sub
 
@@ -526,6 +486,26 @@ ErrorLoop:
     Private Sub TextBoxLoginCount_TextChanged(sender As Object, e As EventArgs) Handles TextBoxLoginCount.TextChanged
 
         My.Settings.SaveLoginCount = TextBoxLoginCount.Text
+        My.Settings.Save()
+
+    End Sub
+
+
+
+    Private Sub checkboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxAutorun.CheckedChanged
+
+        'Set Or Remove registry key to Autorun application if checkbox is checked
+        If checkboxAutorun.Checked Then
+            Dim regKey As Microsoft.Win32.RegistryKey
+            regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+            regKey.SetValue(applicationName, """" & applicationPath & """")
+            regKey.Close()
+        Else
+            Dim regKey As Microsoft.Win32.RegistryKey
+            regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+            regKey.DeleteValue(applicationName, False)
+            regKey.Close()
+        End If
 
     End Sub
 

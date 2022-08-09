@@ -21,11 +21,13 @@ Public Class Form1
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-        NotifyIcon1.Visible = True
-
         '' Hide Crossthreading Error
         CheckForIllegalCrossThreadCalls = False
+
+        '' Icon & Lights
+        NotifyIcon1.Visible = True
+        NotifyIcon1.Icon = My.Resources.TrayRED
+        ButtonRunninStatus.BackColor = Color.Red
 
         '' ComboBox Options
         Dim comboSource As New Dictionary(Of String, String) From {
@@ -43,13 +45,6 @@ Public Class Form1
         '' add the following to the form load event to Check Value Of AutoRun (Regisery Key) & Update CheckBox
         Dim regKey As Microsoft.Win32.RegistryKey
         regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-
-
-        '' set button text
-        ButtonStartStop.Text = "Start Service"
-
-        ButtonRunninStatus.BackColor = Color.Red
-        NotifyIcon1.Icon = My.Resources.TrayRED
 
         '' set backgroundworker settings
         MyBackgroundWorker.WorkerSupportsCancellation = True
@@ -71,6 +66,10 @@ Public Class Form1
             Me.WindowState = FormWindowState.Minimized
             Me.ShowInTaskbar = False
         End If
+
+        '' Enable & set button text
+        ButtonStartStop.Enabled = True
+        ButtonStartStop.Text = "Start Service"
 
     End Sub
 
@@ -264,15 +263,6 @@ ErrorLoop:
                     Exit Do
                 End If
 
-                '' Check For Network & Report Interet Status
-                If My.Computer.Network.IsAvailable Then
-                Else
-                    '' Internet Connection Fail Status Light
-                    ButtonInternetStatus.BackColor = Color.Red
-                    NotifyIcon1.Icon = My.Resources.TrayRED
-                End If
-
-
                 '' Internet Connection Fail Status Light
                 ButtonInternetStatus.BackColor = Color.Red
                 NotifyIcon1.Icon = My.Resources.TrayRED
@@ -357,7 +347,7 @@ ErrorLoop:
         Catch ex As Exception
 
             '' Error Shows When Unable To Resolve BT Wi-Fi DNS
-            RichTextBoxHTTPresponse.Text = "No BT Wi-Fi Connection"
+            RichTextBoxHTTPresponse.Text = "Error Logging Out"
 
             ''cancel bacgroundworker process (sets CancellationPending to True)
             MyBackgroundWorker.CancelAsync()
@@ -377,11 +367,9 @@ ErrorLoop:
 
         If Me.WindowState = FormWindowState.Minimized Then
             Me.Visible = False
-            NotifyIcon1.Visible = True
         End If
 
     End Sub
-
 
 
     '' Handle The Double Click (OPEN) Of The System Tray Icon (Add In [DESIGN] page to form)
@@ -389,10 +377,8 @@ ErrorLoop:
 
         Me.Visible = True
         Me.WindowState = FormWindowState.Normal
-        NotifyIcon1.Visible = False
 
     End Sub
-
 
 
     '' Handle Context Menu Open (Right CLick System Tray > Open)
@@ -400,24 +386,12 @@ ErrorLoop:
 
         Me.Visible = True
         Me.WindowState = FormWindowState.Normal
-        NotifyIcon1.Visible = False
 
     End Sub
-
 
 
     '' Handle Context Menu Exit (Right CLick System Tray > Exit)
     Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
-
-        Close()
-
-    End Sub
-
-
-
-    '' While closing the program, Handles The Saving Of ComboBox & Autorun...
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-
         Try
 
             '' ComboBox Save Settings (System - Settings - Integer)
@@ -428,16 +402,55 @@ ErrorLoop:
 
             'Set Or Remove registry key to Autorun application if checkbox is checked
             If checkboxAutorun.Checked Then
-                    Dim regKey As Microsoft.Win32.RegistryKey
-                    regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                    regKey.SetValue(applicationName, """" & applicationPath & """")
-                    regKey.Close()
-                Else
-                    Dim regKey As Microsoft.Win32.RegistryKey
-                    regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-                    regKey.DeleteValue(applicationName, False)
-                    regKey.Close()
-                End If
+                Dim regKey As Microsoft.Win32.RegistryKey
+                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+                regKey.SetValue(applicationName, """" & applicationPath & """")
+                regKey.Close()
+            Else
+                Dim regKey As Microsoft.Win32.RegistryKey
+                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+                regKey.DeleteValue(applicationName, False)
+                regKey.Close()
+            End If
+
+            Environment.Exit(0)
+
+        Catch ex As Exception
+
+            MessageBox.Show("Error During Close, Data May NOT Be Saved")
+            Environment.Exit(0)
+
+        End Try
+
+    End Sub
+
+
+    '' While closing the program, Handles The Saving Of ComboBox & Autorun...
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+        Try
+
+            Me.WindowState = FormWindowState.Minimized
+            e.Cancel = True
+
+            '' ComboBox Save Settings (System - Settings - Integer)
+            My.Settings.saveAccType = ComboBoxAcctype.SelectedIndex
+            My.Settings.saveEmail = TextBoxEmail.Text
+            My.Settings.savePassword = TextBoxPassword.Text
+            My.Settings.SaveLoginCount = TextBoxLoginCount.Text
+
+            'Set Or Remove registry key to Autorun application if checkbox is checked
+            If checkboxAutorun.Checked Then
+                Dim regKey As Microsoft.Win32.RegistryKey
+                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+                regKey.SetValue(applicationName, """" & applicationPath & """")
+                regKey.Close()
+            Else
+                Dim regKey As Microsoft.Win32.RegistryKey
+                regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+                regKey.DeleteValue(applicationName, False)
+                regKey.Close()
+            End If
 
 
         Catch ex As Exception
@@ -461,7 +474,6 @@ ErrorLoop:
     End Sub
 
 
-
     '' Handle Map Opening
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
 
@@ -478,9 +490,16 @@ ErrorLoop:
     End Sub
 
 
-
     '' Handle Version & Website Opening
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+
+        AboutBox1.Show()
+
+    End Sub
+
+
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
 
         AboutBox1.Show()
 
@@ -512,8 +531,5 @@ ErrorLoop:
 
 
 
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
-        AboutBox1.Show()
-    End Sub
 End Class
 

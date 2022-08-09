@@ -36,6 +36,16 @@
 
     End Sub
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Try
+            Dim url As String = “https://linktr.ee/aidanmacgregor“
+            Process.Start(url)
+        Catch ex As Exception
+            MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+        End Try
+
+    End Sub
+
 
 
 End Class

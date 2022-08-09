@@ -22,6 +22,8 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        NotifyIcon1.Visible = True
+
         '' Hide Crossthreading Error
         CheckForIllegalCrossThreadCalls = False
 
@@ -47,6 +49,7 @@ Public Class Form1
         ButtonStartStop.Text = "Start Service"
 
         ButtonRunninStatus.BackColor = Color.Red
+        NotifyIcon1.Icon = My.Resources.TrayRED
 
         '' set backgroundworker settings
         MyBackgroundWorker.WorkerSupportsCancellation = True
@@ -131,6 +134,7 @@ ErrorLoop:
 
                         '' Internet Status "LED"
                         ButtonInternetStatus.BackColor = Color.Red
+                        NotifyIcon1.Icon = My.Resources.TrayRED
 
                         '' Clear HTTP Request
                         RichTextBoxHTTPresponse.Clear()
@@ -250,6 +254,7 @@ ErrorLoop:
                 Else
                     ''Green Internet Status If Ping Sucsessful
                     ButtonInternetStatus.BackColor = Color.Green
+                    NotifyIcon1.Icon = My.Resources.TrayGREEN
                 End If
 
             Catch ex As Exception  '' This Exeption Cathes Ping Failing & DNS ERRORS
@@ -264,7 +269,13 @@ ErrorLoop:
                 Else
                     '' Internet Connection Fail Status Light
                     ButtonInternetStatus.BackColor = Color.Red
+                    NotifyIcon1.Icon = My.Resources.TrayRED
                 End If
+
+
+                '' Internet Connection Fail Status Light
+                ButtonInternetStatus.BackColor = Color.Red
+                NotifyIcon1.Icon = My.Resources.TrayRED
 
                 '' Change info Label
                 RichTextBoxHTTPresponse.Text = "No BT Wi-Fi Connection"
@@ -337,6 +348,7 @@ ErrorLoop:
             '' Status "Lights"
             ButtonRunninStatus.BackColor = Color.Red
             ButtonInternetStatus.BackColor = Color.Red
+            NotifyIcon1.Icon = My.Resources.TrayRED
 
             '' Change Button Function
             ButtonStartStop.Text = "Start Service"
@@ -353,6 +365,7 @@ ErrorLoop:
             '' Change Button Function & "Lights"
             ButtonRunninStatus.BackColor = Color.Red
             ButtonStartStop.Text = "Start Service"
+            NotifyIcon1.Icon = My.Resources.TrayRED
 
         End Try
 

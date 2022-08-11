@@ -13,7 +13,7 @@
  
 # Features:
 
- - v4 New UI Design
+ - New UI Design [[NEW v4]]
  - Automatic Login To UK Wide BT Wi-Fi Hotspots
  - Close Will Minimise To Tray (Exit By Using Right Click On Tray Icon, This WONT Run The Log Out URL, If Log Out Is Needed Thet Stop Service First) [[NEW v4]]
  - Tray Icom Changes (Red & Green) To Reflect Current Internet Status Status (Reccomend Dragging Moving It To always Show Next To Wi-Fi Icom) [[NEW v4]]

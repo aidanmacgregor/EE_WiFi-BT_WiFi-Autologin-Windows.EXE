@@ -5,6 +5,15 @@ Imports System.IO
 
 Public Class Form1
 
+    '' All This Is Related  To Bringing The Window To Foreground
+    Public Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Integer) As Integer
+    Public Declare Auto Function FindWindow Lib "user32.dll" (ByVal lpClassName As String, ByVal lpWindowName As String) As Integer
+    Public Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Integer) As Boolean
+    Public Declare Function ShowWindow Lib "user32.dll" (ByVal hwnd As Integer, ByVal nCmdShow As Integer) As Integer
+    Public Const SW_RESTORE As Integer = 9
+    Public Const SW_SHOW As Integer = 5
+
+
     '' set application name and application path variables (Part Of AutoRun)
     Private ReadOnly applicationName As String = Application.ProductName
     Private ReadOnly applicationPath As String = Application.ExecutablePath
@@ -422,8 +431,14 @@ ErrorLoop:
     '' Handle The Double Click (OPEN) Of The System Tray Icon (Add In [DESIGN] page to form)
     Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
 
-        Me.Visible = True
-        Me.WindowState = FormWindowState.Normal
+        If Me.Visible = False Then
+            FocusWindow("BT Wi-Fi Autologin Service", Nothing)
+            Me.Visible = True
+            Me.WindowState = FormWindowState.Normal
+        ElseIf Me.Visible = True Then
+            Me.Visible = False
+            Me.WindowState = FormWindowState.Minimized
+        End If
 
     End Sub
 
@@ -431,6 +446,7 @@ ErrorLoop:
     '' Handle Context Menu Open (Right CLick System Tray > Open)
     Private Sub ContextOpen_Click(sender As Object, e As EventArgs) Handles contextOpen.Click
 
+        FocusWindow("BT Wi-Fi Autologin Service", Nothing)
         Me.Visible = True
         Me.WindowState = FormWindowState.Normal
 
@@ -443,6 +459,26 @@ ErrorLoop:
         Application.ExitThread()
 
     End Sub
+
+
+    '' This Brings The Window To The Front On Opening
+    Private Sub FocusWindow(ByVal strWindowCaption As String, ByVal strClassName As String)
+
+        Dim hWnd As Integer
+        hWnd = FindWindow(strClassName, strWindowCaption)
+
+        If hWnd > 0 Then
+            SetForegroundWindow(hWnd)
+
+            If IsIconic(hWnd) Then  'Restore if minimized
+                ShowWindow(hWnd, SW_RESTORE)
+            Else
+                ShowWindow(hWnd, SW_SHOW)
+            End If
+        End If
+
+    End Sub
+
 
 
     Private Sub ComboBoxAcctype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxAcctype.DropDownClosed

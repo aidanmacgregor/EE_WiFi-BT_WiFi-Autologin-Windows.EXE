@@ -105,7 +105,7 @@ Partial Class Form1
         '
         Me.ButtonResetLogincount.Location = New System.Drawing.Point(289, 334)
         Me.ButtonResetLogincount.Name = "ButtonResetLogincount"
-        Me.ButtonResetLogincount.Size = New System.Drawing.Size(93, 21)
+        Me.ButtonResetLogincount.Size = New System.Drawing.Size(90, 21)
         Me.ButtonResetLogincount.TabIndex = 58
         Me.ButtonResetLogincount.Text = "Reset Count"
         Me.ButtonResetLogincount.UseVisualStyleBackColor = True
@@ -290,7 +290,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(391, 365)
+        Me.ClientSize = New System.Drawing.Size(391, 366)
         Me.Controls.Add(Me.ButtonAbout)
         Me.Controls.Add(Me.LinkLabel2)
         Me.Controls.Add(Me.Label8)

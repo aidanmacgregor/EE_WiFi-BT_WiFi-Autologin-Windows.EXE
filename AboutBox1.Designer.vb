@@ -64,7 +64,7 @@ Partial Class AboutBox1
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(165, 20)
         Me.TextBox2.TabIndex = 2
-        Me.TextBox2.Text = "4.0.0.0"
+        Me.TextBox2.Text = "5.0.0.0"
         '
         'TextBox3
         '

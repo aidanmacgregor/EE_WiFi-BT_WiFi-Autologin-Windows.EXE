@@ -477,7 +477,7 @@ ErrorLoop:
     End Sub
 
 
-    Private Sub checkboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxAutorun.CheckedChanged
+    Private Sub CheckboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxAutorun.CheckedChanged
 
         'Set Or Remove registry key to Autorun application if checkbox is checked
         If checkboxAutorun.Checked Then
@@ -493,6 +493,7 @@ ErrorLoop:
         End If
 
     End Sub
+
 
 
 End Class

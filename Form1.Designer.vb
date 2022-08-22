@@ -39,17 +39,17 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RichTextBoxHTTPresponse = New System.Windows.Forms.RichTextBox()
         Me.ButtonStartStop = New System.Windows.Forms.Button()
-        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
-        Me.TextBoxEmail = New System.Windows.Forms.TextBox()
         Me.contextExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.contextOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ComboBoxAcctype = New System.Windows.Forms.ComboBox()
-        Me.TextBoxLoginCount = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ButtonAbout = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBoxLoginCount = New System.Windows.Forms.TextBox()
+        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
+        Me.TextBoxEmail = New System.Windows.Forms.TextBox()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -195,25 +195,6 @@ Partial Class Form1
         Me.ButtonStartStop.Text = "Loading..."
         Me.ButtonStartStop.UseVisualStyleBackColor = True
         '
-        'TextBoxPassword
-        '
-        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "savePassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPassword.Location = New System.Drawing.Point(12, 308)
-        Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(271, 20)
-        Me.TextBoxPassword.TabIndex = 46
-        Me.TextBoxPassword.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.savePassword
-        Me.TextBoxPassword.UseSystemPasswordChar = True
-        '
-        'TextBoxEmail
-        '
-        Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "saveEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxEmail.Location = New System.Drawing.Point(12, 269)
-        Me.TextBoxEmail.Name = "TextBoxEmail"
-        Me.TextBoxEmail.Size = New System.Drawing.Size(271, 20)
-        Me.TextBoxEmail.TabIndex = 45
-        Me.TextBoxEmail.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.saveEmail
-        '
         'contextExit
         '
         Me.contextExit.Name = "contextExit"
@@ -246,17 +227,6 @@ Partial Class Form1
         Me.ComboBoxAcctype.Size = New System.Drawing.Size(184, 21)
         Me.ComboBoxAcctype.TabIndex = 0
         '
-        'TextBoxLoginCount
-        '
-        Me.TextBoxLoginCount.Cursor = System.Windows.Forms.Cursors.Default
-        Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxLoginCount.Location = New System.Drawing.Point(289, 308)
-        Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
-        Me.TextBoxLoginCount.ReadOnly = True
-        Me.TextBoxLoginCount.Size = New System.Drawing.Size(92, 20)
-        Me.TextBoxLoginCount.TabIndex = 61
-        Me.TextBoxLoginCount.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.SaveLoginCount
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -264,7 +234,7 @@ Partial Class Form1
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(149, 13)
         Me.Label5.TabIndex = 49
-        Me.Label5.Text = "BT Wi-Fi Autologin Service v4"
+        Me.Label5.Text = "BT Wi-Fi Autologin Service v5"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonAbout
@@ -284,6 +254,36 @@ Partial Class Form1
         Me.PictureBox1.Size = New System.Drawing.Size(409, 209)
         Me.PictureBox1.TabIndex = 55
         Me.PictureBox1.TabStop = False
+        '
+        'TextBoxLoginCount
+        '
+        Me.TextBoxLoginCount.Cursor = System.Windows.Forms.Cursors.Default
+        Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxLoginCount.Location = New System.Drawing.Point(289, 308)
+        Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
+        Me.TextBoxLoginCount.ReadOnly = True
+        Me.TextBoxLoginCount.Size = New System.Drawing.Size(92, 20)
+        Me.TextBoxLoginCount.TabIndex = 61
+        Me.TextBoxLoginCount.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.SaveLoginCount
+        '
+        'TextBoxPassword
+        '
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "savePassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.Location = New System.Drawing.Point(12, 308)
+        Me.TextBoxPassword.Name = "TextBoxPassword"
+        Me.TextBoxPassword.Size = New System.Drawing.Size(271, 20)
+        Me.TextBoxPassword.TabIndex = 46
+        Me.TextBoxPassword.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.savePassword
+        Me.TextBoxPassword.UseSystemPasswordChar = True
+        '
+        'TextBoxEmail
+        '
+        Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "saveEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxEmail.Location = New System.Drawing.Point(12, 269)
+        Me.TextBoxEmail.Name = "TextBoxEmail"
+        Me.TextBoxEmail.Size = New System.Drawing.Size(271, 20)
+        Me.TextBoxEmail.TabIndex = 45
+        Me.TextBoxEmail.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.saveEmail
         '
         'Form1
         '

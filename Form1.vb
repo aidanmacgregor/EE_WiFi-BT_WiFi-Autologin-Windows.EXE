@@ -99,14 +99,14 @@ Public Class Form1
 
             End If
 
-            '' Change Button Function
-            ButtonStartStop.Text = "Stop Service"
-
             '' Status Button Coulour
             ButtonRunninStatus.BackColor = Color.Green
 
             '' Clear HTTP Response
             RichTextBoxHTTPresponse.Clear()
+
+            '' Change Button Function
+            ButtonStartStop.Text = "Stop Service"
 
         ElseIf ButtonStartStop.Text = "Stop Service" Then
 

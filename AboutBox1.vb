@@ -6,7 +6,7 @@
 
 
     '' Opens Browser To Buy Me A Coffee To Doante
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonDonate.Click
+    Private Sub ButtonDonate_Click(sender As Object, e As EventArgs) Handles ButtonDonate.Click
 
         Try
             Dim url As String = “https://www.buymeacoffee.com/aidanmacgregor“
@@ -19,7 +19,7 @@
 
 
     '' Other Projects Button: Opens Browser To Linktr.ee To See Other Projects
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonOtherStuff.Click
+    Private Sub ButtonOtherStuff_Click(sender As Object, e As EventArgs) Handles ButtonOtherStuff.Click
 
         Try
             Dim url As String = “https://linktr.ee/aidanmacgregor“
@@ -29,7 +29,6 @@
         End Try
 
     End Sub
-
 
 
 End Class

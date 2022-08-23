@@ -23,10 +23,10 @@ Partial Class AboutBox1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AboutBox1))
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBoxName = New System.Windows.Forms.TextBox()
+        Me.TextBoxVersion = New System.Windows.Forms.TextBox()
+        Me.TextBoxBy = New System.Windows.Forms.TextBox()
+        Me.TextBoxDate = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,41 +37,41 @@ Partial Class AboutBox1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'TextBoxName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(184, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.Text = "BT Wi-Fi Autologin Service"
+        Me.TextBoxName.Location = New System.Drawing.Point(184, 25)
+        Me.TextBoxName.Name = "TextBoxName"
+        Me.TextBoxName.ReadOnly = True
+        Me.TextBoxName.Size = New System.Drawing.Size(165, 20)
+        Me.TextBoxName.TabIndex = 1
+        Me.TextBoxName.Text = "BT Wi-Fi Autologin Service"
         '
-        'TextBox2
+        'TextBoxVersion
         '
-        Me.TextBox2.Location = New System.Drawing.Point(184, 64)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox2.TabIndex = 2
-        Me.TextBox2.Text = "5.0.0.0"
+        Me.TextBoxVersion.Location = New System.Drawing.Point(184, 64)
+        Me.TextBoxVersion.Name = "TextBoxVersion"
+        Me.TextBoxVersion.ReadOnly = True
+        Me.TextBoxVersion.Size = New System.Drawing.Size(165, 20)
+        Me.TextBoxVersion.TabIndex = 2
+        Me.TextBoxVersion.Text = "5.0.0.0"
         '
-        'TextBox3
+        'TextBoxBy
         '
-        Me.TextBox3.Location = New System.Drawing.Point(184, 103)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(164, 20)
-        Me.TextBox3.TabIndex = 3
-        Me.TextBox3.Text = "Aidan Macgregor"
+        Me.TextBoxBy.Location = New System.Drawing.Point(184, 103)
+        Me.TextBoxBy.Name = "TextBoxBy"
+        Me.TextBoxBy.ReadOnly = True
+        Me.TextBoxBy.Size = New System.Drawing.Size(164, 20)
+        Me.TextBoxBy.TabIndex = 3
+        Me.TextBoxBy.Text = "Aidan Macgregor"
         '
-        'TextBox4
+        'TextBoxDate
         '
-        Me.TextBox4.Location = New System.Drawing.Point(184, 142)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(164, 20)
-        Me.TextBox4.TabIndex = 4
-        Me.TextBox4.Text = "August 2022"
+        Me.TextBoxDate.Location = New System.Drawing.Point(184, 142)
+        Me.TextBoxDate.Name = "TextBoxDate"
+        Me.TextBoxDate.ReadOnly = True
+        Me.TextBoxDate.Size = New System.Drawing.Size(164, 20)
+        Me.TextBoxDate.TabIndex = 4
+        Me.TextBoxDate.Text = "August 2022"
         '
         'Label1
         '
@@ -150,10 +150,10 @@ Partial Class AboutBox1
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TextBoxDate)
+        Me.Controls.Add(Me.TextBoxBy)
+        Me.Controls.Add(Me.TextBoxVersion)
+        Me.Controls.Add(Me.TextBoxName)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -171,10 +171,10 @@ Partial Class AboutBox1
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBoxName As TextBox
+    Friend WithEvents TextBoxVersion As TextBox
+    Friend WithEvents TextBoxBy As TextBox
+    Friend WithEvents TextBoxDate As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label

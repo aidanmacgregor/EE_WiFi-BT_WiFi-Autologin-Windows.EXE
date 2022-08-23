@@ -136,7 +136,7 @@ Public Class Form1
 
                     If My.Computer.Network.Ping("8.8.8.8") = False Then
 
-                        '' Internet Status "LED"
+                        '' Internet Connection Status Indicators
                         ButtonInternetStatus.BackColor = Color.Red
                         NotifyIcon1.Icon = My.Resources.TrayRED
 
@@ -372,7 +372,7 @@ Public Class Form1
             '' Error Shows When Unable To Resolve BT Wi-Fi DNS
             RichTextBoxHTTPresponse.Text = "Log Out Error, Not BT Wi-Fi? (DNS) "
 
-            '' Button, Running & Internet Connection Status Indicators
+            '' Buttom, Running & Internet Connection Status Indicators
             ButtonRunninStatus.BackColor = Color.Red
             ButtonStartStop.Text = "Start Service"
             NotifyIcon1.Icon = My.Resources.TrayRED
@@ -420,7 +420,6 @@ Public Class Form1
         '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
         MyBackgroundWorker.CancelAsync()
         Application.ExitThread()
-
 
     End Sub
 

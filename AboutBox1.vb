@@ -4,14 +4,8 @@
 
     End Sub
 
-    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-        Me.Close()
-
-    End Sub
-
-
-
+    '' Opens Browser To Buy Me A Coffee To Doante
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonDonate.Click
 
         Try
@@ -24,19 +18,9 @@
     End Sub
 
 
-
+    '' Other Projects Button: Opens Browser To Linktr.ee To See Other Projects
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonOtherStuff.Click
 
-        Try
-            Dim url As String = “https://linktr.ee/aidanmacgregor“
-            Process.Start(url)
-        Catch ex As Exception
-            MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
-        End Try
-
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Try
             Dim url As String = “https://linktr.ee/aidanmacgregor“
             Process.Start(url)

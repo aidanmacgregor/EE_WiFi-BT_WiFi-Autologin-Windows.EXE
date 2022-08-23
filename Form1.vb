@@ -62,31 +62,42 @@ Public Class Form1
 
         '' Check For AutoRun Registery Key, Mark Checkbox & Start Service if key is present
         If CStr(regKey.GetValue(applicationName)) = """" & applicationPath & """" Then
-            checkboxAutorun.Checked = True
+
+            CheckBoxAutorun.Checked = True
+
         Else
-            checkboxAutorun.Checked = False
+
+            CheckBoxAutorun.Checked = False
+
         End If
+
         regKey.Close()
 
         '' Enable & set button text
         ButtonStartStop.Text = "Start Service"
 
         '' Check For Autorun & Minimise On Startup
-        If checkboxAutorun.Checked = True Then
+        If CheckBoxAutorun.Checked = True Then
+
             Me.ButtonStartStop.PerformClick()
             Me.WindowState = FormWindowState.Minimized
             Me.ShowInTaskbar = False
+
         End If
 
     End Sub
 
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonStartStop.Click
+    Private Sub ButtonStartStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonStartStop.Click
 
         If ButtonStartStop.Text = "Start Service" Then
 
-            '' Sleep To Ensure Enough Time For Thread To Initalise Before Stopping (Dont Know If Nesicerry But Seems Like Good Idea)
-            Threading.Thread.Sleep(1000)
+            '' start backgroundworker process
+            If MyBackgroundWorker.IsBusy = False Then
+
+                MyBackgroundWorker.RunWorkerAsync()
+
+            End If
 
             '' Change Button Function
             ButtonStartStop.Text = "Stop Service"
@@ -97,15 +108,7 @@ Public Class Form1
             '' Clear HTTP Response
             RichTextBoxHTTPresponse.Clear()
 
-            '' start backgroundworker process
-            If MyBackgroundWorker.IsBusy = False Then
-                MyBackgroundWorker.RunWorkerAsync()
-            End If
-
         ElseIf ButtonStartStop.Text = "Stop Service" Then
-
-            '' Sleep To Ensure Enough Time For Thread To Initalise Before Stopping (Dont Know If Nesicerry But Seems Like Good Idea)
-            Threading.Thread.Sleep(1000)
 
             '' cancel bacgroundworker process (sets CancellationPending to True)
             MyBackgroundWorker.CancelAsync()
@@ -116,12 +119,10 @@ Public Class Form1
 
 
     Private Sub MyBackgroundWorker_Login_Loop(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
-        '' Label To Loop Back To On Exeption
-ErrorLoop:
 
         '' start infinite loop
         Do
-
+            '' Try & Catch Exeption To Avoid Crashes
             Try
 
                 '' Combo Box Read Selection
@@ -150,7 +151,7 @@ ErrorLoop:
                         Dim encoding As New UTF8Encoding
                         Dim byteData As Byte() = encoding.GetBytes(postData)
 
-                        If keyAcctype = 1 Then
+                        If CInt(keyAcctype) = 1 Then
 
                             Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://btwifi.com:8443/tbbLogon"), HttpWebRequest)
                             postReq.Method = "POST"
@@ -176,15 +177,19 @@ ErrorLoop:
 
                             '' Check Rich Text Box & Replace Withe Useful Message
                             If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
                                 LoginCount += 1
-                                TextBoxLoginCount.Text = LoginCount
+                                TextBoxLoginCount.Text = CStr(LoginCount)
+
                             ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
+
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
+
                             End If
 
-                        ElseIf keyAcctype = 2 Then
+                        ElseIf CInt(keyAcctype) = 2 Then
 
                             Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://www.btwifi.com:8443/ante?partnerNetwork=btb"), HttpWebRequest)
                             postReq.Method = "POST"
@@ -210,15 +215,19 @@ ErrorLoop:
 
                             '' Check Rich Text Box & Replace Withe Useful Message
                             If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
                                 LoginCount += 1
-                                TextBoxLoginCount.Text = LoginCount
+                                TextBoxLoginCount.Text = CStr(LoginCount)
+
                             ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
+
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
+
                             End If
 
-                        ElseIf keyAcctype = 3 Then
+                        ElseIf CInt(keyAcctype) = 3 Then
 
                             Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://www.btwifi.com:8443/ante"), HttpWebRequest)
                             postReq.Method = "POST"
@@ -244,55 +253,64 @@ ErrorLoop:
 
                             '' Check Rich Text Box & Replace Withe Useful Message
                             If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
                                 LoginCount += 1
-                                TextBoxLoginCount.Text = LoginCount
-                            ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
-                                RichTextBoxHTTPresponse.Text = "Username/Password Error"
-                            End If
+                                TextBoxLoginCount.Text = CStr(LoginCount)
 
+                            ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
+
+                                RichTextBoxHTTPresponse.Text = "Username/Password Error"
+
+                            End If
                         End If
                     End If
+
                 Else
-                    ''Green Internet Status If Ping Sucsessful
+
+                    '' Internet Connection Status Indicators
                     ButtonInternetStatus.BackColor = Color.Green
                     NotifyIcon1.Icon = My.Resources.TrayGREEN
+
+                    '' Wait Before Testing Internet Again (May Help Reduce Any False Positives)
+                    Threading.Thread.Sleep(1000)
+
+                    If RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)" Then
+
+                        RichTextBoxHTTPresponse.Clear()
+
+                    End If
+
+                    '' Listen For CancelAsync & Exit The Loop
+                    If MyBackgroundWorker.CancellationPending = True Then
+
+                        '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+                        MyBackgroundWorker.CancelAsync()
+                        Exit Do
+
+                    End If
+
                 End If
 
             Catch ex As Exception  '' This Exeption Cathes Ping Failing & DNS ERRORS
 
                 '' Listen For CancelAsync & Exit The Loop
                 If MyBackgroundWorker.CancellationPending = True Then
+
+                    '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+                    MyBackgroundWorker.CancelAsync()
                     Exit Do
+
                 End If
 
-                '' Internet Connection Fail Status Light
+                RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)"
+
+                '' Internet Connection Status Indicators
                 ButtonInternetStatus.BackColor = Color.Red
                 NotifyIcon1.Icon = My.Resources.TrayRED
 
-                '' Change info Label
-                RichTextBoxHTTPresponse.Text = "No BT Wi-Fi Connection"
-
-                '' Wait Before Testing Internet Again To Not Flood Server With Requests
-                Threading.Thread.Sleep(1000)
-
-                RichTextBoxHTTPresponse.Clear()
-
-                '' Loop Attemps To Login Instead Of Exeption & Crash
-                GoTo ErrorLoop
-
             End Try
-
-            '' Listen For Do Loop Exit
-            If MyBackgroundWorker.CancellationPending = True Then
-
-                Exit Do
-
-            End If
-
-            '' Wait Before Testing Internet Again To Not Flood Server With Requests
-            Threading.Thread.Sleep(1000)
 
         Loop
 
@@ -335,10 +353,12 @@ ErrorLoop:
 
             '' Check Rich Text Box & Replace Withe Useful Message
             If thepage.Contains("landing.htm") Then
+
                 RichTextBoxHTTPresponse.Text = "Logged Out"
+
             End If
 
-            '' Status "Lights"
+            '' Running & Internet Connection Status Indicators
             ButtonRunninStatus.BackColor = Color.Red
             ButtonInternetStatus.BackColor = Color.Red
             NotifyIcon1.Icon = My.Resources.TrayRED
@@ -350,12 +370,9 @@ ErrorLoop:
         Catch ex As Exception
 
             '' Error Shows When Unable To Resolve BT Wi-Fi DNS
-            RichTextBoxHTTPresponse.Text = "Error Logging Out"
+            RichTextBoxHTTPresponse.Text = "Log Out Error, Not BT Wi-Fi? (DNS) "
 
-            ''cancel bacgroundworker process (sets CancellationPending to True)
-            MyBackgroundWorker.CancelAsync()
-
-            '' Change Button Function & "Lights"
+            '' Button, Running & Internet Connection Status Indicators
             ButtonRunninStatus.BackColor = Color.Red
             ButtonStartStop.Text = "Start Service"
             NotifyIcon1.Icon = My.Resources.TrayRED
@@ -365,65 +382,14 @@ ErrorLoop:
     End Sub
 
 
-    '' Handle Login Count Reset Button
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles ButtonResetLogincount.Click
-
-        Dim ask As MsgBoxResult = MsgBox("Really Delete Login Count Data? (Irriversable)", MsgBoxStyle.YesNo)
-
-        If ask = MsgBoxResult.Yes Then
-            TextBoxLoginCount.Text = 0
-        End If
-
-    End Sub
-
-
-    '' Handle Map Opening
-    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-
-        Dim ask As MsgBoxResult = MsgBox("Open BT Wi-Fi Map?", MsgBoxStyle.YesNo)
-        If ask = MsgBoxResult.Yes Then
-            Try
-                Dim url As String = “https://info.btwifi.com:442/find/“
-                Process.Start(url)
-            Catch ex As Exception
-                MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
-            End Try
-        End If
-
-    End Sub
-
-
-    '' Handle Version & Website Opening
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-
-        AboutBox1.Show()
-
-    End Sub
-
-
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles ButtonAbout.Click
-
-        AboutBox1.Show()
-
-    End Sub
-
-
     '' While closing the program, Handles Minimising On [X]
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         '' Close Disable & Minimise To Tray
         Me.WindowState = FormWindowState.Minimized
+        Me.Hide()
+        Me.ShowInTaskbar = False
         e.Cancel = True
-
-    End Sub
-
-
-    '' Handle The Minimize To Tray Function
-    Private Sub Form1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
-
-        If Me.WindowState = FormWindowState.Minimized Then
-            Me.Visible = False
-        End If
 
     End Sub
 
@@ -431,14 +397,30 @@ ErrorLoop:
     '' Handle The Double Click (OPEN) Of The System Tray Icon (Add In [DESIGN] page to form)
     Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
 
-        If Me.Visible = False Then
+        If Me.WindowState = FormWindowState.Minimized Then
+
+            Me.Show()
             FocusWindow("BT Wi-Fi Autologin Service", Nothing)
-            Me.Visible = True
-            Me.WindowState = FormWindowState.Normal
-        ElseIf Me.Visible = True Then
-            Me.Visible = False
+            Me.ShowInTaskbar = True
+
+        Else
+
             Me.WindowState = FormWindowState.Minimized
+            Me.Hide()
+            Me.ShowInTaskbar = False
+
         End If
+
+    End Sub
+
+
+    '' Handle Context Menu Exit (Right CLick System Tray > Exit)
+    Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
+
+        '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+        MyBackgroundWorker.CancelAsync()
+        Application.ExitThread()
+
 
     End Sub
 
@@ -447,40 +429,36 @@ ErrorLoop:
     Private Sub ContextOpen_Click(sender As Object, e As EventArgs) Handles contextOpen.Click
 
         FocusWindow("BT Wi-Fi Autologin Service", Nothing)
-        Me.Visible = True
-        Me.WindowState = FormWindowState.Normal
+        Me.ShowInTaskbar = True
 
     End Sub
 
 
-    '' Handle Context Menu Exit (Right CLick System Tray > Exit)
-    Private Sub ContextExit_Click(sender As Object, e As EventArgs) Handles contextExit.Click
-
-        Application.ExitThread()
-
-    End Sub
-
-
-    '' This Brings The Window To The Front On Opening
+    '' Brings This Window To Front Focus With Context Menu Open (Right CLick System Tray > Open) - Call By Using: FocusWindow("BT Wi-Fi Autologin Service", Nothing)
     Private Sub FocusWindow(ByVal strWindowCaption As String, ByVal strClassName As String)
 
         Dim hWnd As Integer
         hWnd = FindWindow(strClassName, strWindowCaption)
 
         If hWnd > 0 Then
+
             SetForegroundWindow(hWnd)
 
-            If IsIconic(hWnd) Then  'Restore if minimized
+            If IsIconic(hWnd) Then
+
                 ShowWindow(hWnd, SW_RESTORE)
+
             Else
+
                 ShowWindow(hWnd, SW_SHOW)
+
             End If
         End If
 
     End Sub
 
 
-
+    '' Saves The Dropdown Option As Soon As Chosen (To Ensure Savimg From Exit, Shutdown & Restart)
     Private Sub ComboBoxAcctype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxAcctype.DropDownClosed
 
         My.Settings.saveAccType = ComboBoxAcctype.SelectedIndex
@@ -489,6 +467,7 @@ ErrorLoop:
     End Sub
 
 
+    '' Saves The Email Text As Soon As User Types (To Ensure Savimg From Exit, Shutdown & Restart)
     Private Sub TextBoxEmail_TextChanged(sender As Object, e As EventArgs) Handles TextBoxEmail.TextChanged
 
         My.Settings.saveEmail = TextBoxEmail.Text
@@ -497,6 +476,7 @@ ErrorLoop:
     End Sub
 
 
+    '' Saves The Password Text As Soon As User Types (To Ensure Savimg From Exit, Shutdown & Restart)
     Private Sub TextBoxPassword_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPassword.TextChanged
 
         My.Settings.savePassword = TextBoxPassword.Text
@@ -505,6 +485,7 @@ ErrorLoop:
     End Sub
 
 
+    '' Saves The Login Count As Soon As It Gets Updated (To Ensure Savimg From Exit, Shutdown & Restart)
     Private Sub TextBoxLoginCount_TextChanged(sender As Object, e As EventArgs) Handles TextBoxLoginCount.TextChanged
 
         My.Settings.SaveLoginCount = TextBoxLoginCount.Text
@@ -513,20 +494,77 @@ ErrorLoop:
     End Sub
 
 
-    Private Sub CheckboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxAutorun.CheckedChanged
+    '' Saves The Autorun Status & Add/Remove Reg Key As Soon As It Gets Updated (To Ensure Savimg From Exit, Shutdown & Restart)
+    Private Sub CheckboxAutorun_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxAutorun.CheckedChanged
 
         'Set Or Remove registry key to Autorun application if checkbox is checked
-        If checkboxAutorun.Checked Then
+        If CheckBoxAutorun.Checked Then
+
             Dim regKey As Microsoft.Win32.RegistryKey
             regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
             regKey.SetValue(applicationName, """" & applicationPath & """")
             regKey.Close()
+
         Else
+
             Dim regKey As Microsoft.Win32.RegistryKey
             regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
             regKey.DeleteValue(applicationName, False)
             regKey.Close()
+
         End If
+
+    End Sub
+
+
+    '' Handle Login Count Reset Button
+    Private Sub ButtonResetLogincount_Click(sender As Object, e As EventArgs) Handles ButtonResetLogincount.Click
+
+        Dim ask As MsgBoxResult = MsgBox("Really Delete Login Count Data? (Irriversable)", MsgBoxStyle.YesNo)
+
+        If ask = MsgBoxResult.Yes Then
+
+            TextBoxLoginCount.Text = CStr(0)
+
+        End If
+
+    End Sub
+
+
+    '' Handle Map Opening
+    Private Sub LinkLabelMap_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelMap.LinkClicked
+
+        Dim ask As MsgBoxResult = MsgBox("Open BT Wi-Fi Map?", MsgBoxStyle.YesNo)
+
+        If ask = MsgBoxResult.Yes Then
+            '' Try & Catch Exeption To Avoid Crashes
+            Try
+
+                Dim url As String = “https://info.btwifi.com:442/find/“
+                Process.Start(url)
+
+            Catch ex As Exception
+
+                MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+
+            End Try
+        End If
+
+    End Sub
+
+
+    '' Handle About Box Open On "By: Aidan Macgregor Label"
+    Private Sub LinkLabelAidanMacgregor_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAidanMacgregor.LinkClicked
+
+        AboutBox1.Show()
+
+    End Sub
+
+
+    '' About Box Button Open More Info
+    Private Sub ButtonAbout_Click(sender As Object, e As EventArgs) Handles ButtonAbout.Click
+
+        AboutBox1.Show()
 
     End Sub
 

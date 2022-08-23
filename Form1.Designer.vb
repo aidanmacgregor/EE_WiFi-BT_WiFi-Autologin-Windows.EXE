@@ -24,15 +24,15 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelMap = New System.Windows.Forms.LinkLabel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ButtonRunninStatus = New System.Windows.Forms.Button()
         Me.ButtonInternetStatus = New System.Windows.Forms.Button()
         Me.ButtonResetLogincount = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.checkboxAutorun = New System.Windows.Forms.CheckBox()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.CheckBoxAutorun = New System.Windows.Forms.CheckBox()
+        Me.LinkLabelAidanMacgregor = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -46,23 +46,23 @@ Partial Class Form1
         Me.ComboBoxAcctype = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ButtonAbout = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBoxLoginCount = New System.Windows.Forms.TextBox()
         Me.TextBoxPassword = New System.Windows.Forms.TextBox()
         Me.TextBoxEmail = New System.Windows.Forms.TextBox()
+        Me.PictureBoxBanner = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxBanner, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'LinkLabel2
+        'LinkLabelMap
         '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(9, 9)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(55, 13)
-        Me.LinkLabel2.TabIndex = 64
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "Wi-Fi Map"
+        Me.LinkLabelMap.AutoSize = True
+        Me.LinkLabelMap.Location = New System.Drawing.Point(9, 9)
+        Me.LinkLabelMap.Name = "LinkLabelMap"
+        Me.LinkLabelMap.Size = New System.Drawing.Size(55, 13)
+        Me.LinkLabelMap.TabIndex = 64
+        Me.LinkLabelMap.TabStop = True
+        Me.LinkLabelMap.Text = "Wi-Fi Map"
         '
         'Label8
         '
@@ -103,7 +103,7 @@ Partial Class Form1
         '
         'ButtonResetLogincount
         '
-        Me.ButtonResetLogincount.Location = New System.Drawing.Point(289, 334)
+        Me.ButtonResetLogincount.Location = New System.Drawing.Point(292, 334)
         Me.ButtonResetLogincount.Name = "ButtonResetLogincount"
         Me.ButtonResetLogincount.Size = New System.Drawing.Size(90, 21)
         Me.ButtonResetLogincount.TabIndex = 58
@@ -119,27 +119,27 @@ Partial Class Form1
         Me.Label7.TabIndex = 57
         Me.Label7.Text = "Login Count:"
         '
-        'checkboxAutorun
+        'CheckBoxAutorun
         '
-        Me.checkboxAutorun.AutoSize = True
-        Me.checkboxAutorun.Location = New System.Drawing.Point(292, 266)
-        Me.checkboxAutorun.Name = "checkboxAutorun"
-        Me.checkboxAutorun.Size = New System.Drawing.Size(88, 17)
-        Me.checkboxAutorun.TabIndex = 56
-        Me.checkboxAutorun.Text = "Run On Boot"
-        Me.checkboxAutorun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.checkboxAutorun.UseVisualStyleBackColor = True
+        Me.CheckBoxAutorun.AutoSize = True
+        Me.CheckBoxAutorun.Location = New System.Drawing.Point(292, 266)
+        Me.CheckBoxAutorun.Name = "CheckBoxAutorun"
+        Me.CheckBoxAutorun.Size = New System.Drawing.Size(88, 17)
+        Me.CheckBoxAutorun.TabIndex = 56
+        Me.CheckBoxAutorun.Text = "Run On Boot"
+        Me.CheckBoxAutorun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CheckBoxAutorun.UseVisualStyleBackColor = True
         '
-        'LinkLabel1
+        'LinkLabelAidanMacgregor
         '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(276, 22)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(106, 13)
-        Me.LinkLabel1.TabIndex = 54
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Tag = ""
-        Me.LinkLabel1.Text = "By: Aidan Macgregor"
+        Me.LinkLabelAidanMacgregor.AutoSize = True
+        Me.LinkLabelAidanMacgregor.Location = New System.Drawing.Point(276, 22)
+        Me.LinkLabelAidanMacgregor.Name = "LinkLabelAidanMacgregor"
+        Me.LinkLabelAidanMacgregor.Size = New System.Drawing.Size(106, 13)
+        Me.LinkLabelAidanMacgregor.TabIndex = 54
+        Me.LinkLabelAidanMacgregor.TabStop = True
+        Me.LinkLabelAidanMacgregor.Tag = ""
+        Me.LinkLabelAidanMacgregor.Text = "By: Aidan Macgregor"
         '
         'Label4
         '
@@ -246,23 +246,14 @@ Partial Class Form1
         Me.ButtonAbout.Text = "About"
         Me.ButtonAbout.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-8, 1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(409, 209)
-        Me.PictureBox1.TabIndex = 55
-        Me.PictureBox1.TabStop = False
-        '
         'TextBoxLoginCount
         '
         Me.TextBoxLoginCount.Cursor = System.Windows.Forms.Cursors.Default
         Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxLoginCount.Location = New System.Drawing.Point(289, 308)
+        Me.TextBoxLoginCount.Location = New System.Drawing.Point(292, 308)
         Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
         Me.TextBoxLoginCount.ReadOnly = True
-        Me.TextBoxLoginCount.Size = New System.Drawing.Size(92, 20)
+        Me.TextBoxLoginCount.Size = New System.Drawing.Size(90, 20)
         Me.TextBoxLoginCount.TabIndex = 61
         Me.TextBoxLoginCount.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.SaveLoginCount
         '
@@ -285,6 +276,15 @@ Partial Class Form1
         Me.TextBoxEmail.TabIndex = 45
         Me.TextBoxEmail.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.saveEmail
         '
+        'PictureBoxBanner
+        '
+        Me.PictureBoxBanner.Image = Global.BT_Wi_Fi_Autologin.My.Resources.Resources.Banner
+        Me.PictureBoxBanner.Location = New System.Drawing.Point(-8, -1)
+        Me.PictureBoxBanner.Name = "PictureBoxBanner"
+        Me.PictureBoxBanner.Size = New System.Drawing.Size(403, 211)
+        Me.PictureBoxBanner.TabIndex = 55
+        Me.PictureBoxBanner.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -292,7 +292,7 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(391, 366)
         Me.Controls.Add(Me.ButtonAbout)
-        Me.Controls.Add(Me.LinkLabel2)
+        Me.Controls.Add(Me.LinkLabelMap)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBoxLoginCount)
@@ -301,8 +301,8 @@ Partial Class Form1
         Me.Controls.Add(Me.ButtonResetLogincount)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.checkboxAutorun)
-        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Me.CheckBoxAutorun)
+        Me.Controls.Add(Me.LinkLabelAidanMacgregor)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -311,7 +311,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ButtonStartStop)
         Me.Controls.Add(Me.TextBoxPassword)
         Me.Controls.Add(Me.TextBoxEmail)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.PictureBoxBanner)
         Me.Controls.Add(Me.ComboBoxAcctype)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -321,13 +321,13 @@ Partial Class Form1
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Text = "BT Wi-Fi Autologin Service"
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxBanner, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents LinkLabelMap As LinkLabel
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBoxLoginCount As TextBox
@@ -335,8 +335,8 @@ Partial Class Form1
     Friend WithEvents ButtonInternetStatus As Button
     Friend WithEvents ButtonResetLogincount As Button
     Friend WithEvents Label7 As Label
-    Friend WithEvents checkboxAutorun As CheckBox
-    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents CheckBoxAutorun As CheckBox
+    Friend WithEvents LinkLabelAidanMacgregor As LinkLabel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
@@ -346,7 +346,7 @@ Partial Class Form1
     Friend WithEvents TextBoxPassword As TextBox
     Friend WithEvents TextBoxEmail As TextBox
     Friend WithEvents contextExit As ToolStripMenuItem
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxBanner As PictureBox
     Friend WithEvents contextOpen As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents NotifyIcon1 As NotifyIcon

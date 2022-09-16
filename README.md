@@ -15,6 +15,8 @@
 
  - New UI Design [[NEW v4]]
  - Automatic Login To UK Wide BT Wi-Fi Hotspots
+ - Tray Icon Double Click To Restore & Minnimise [[NEW v5]]
+ - Tray Icon Will Bring Window To Front Focus [[NEW v5]]
  - Close Will Minimise To Tray (Exit By Using Right Click On Tray Icon, This WONT Run The Log Out URL, If Log Out Is Needed Thet Stop Service First) [[NEW v4]]
  - Tray Icon Changes (Red & Green) To Reflect Current Internet Status Status (Reccomend Dragging Moving It To always Show Next To Wi-Fi Icom) [[NEW v4]]
  - Auto Run Regestery Key & Start Service At Boot Option

@@ -27,7 +27,7 @@ Partial Class Form1
         Me.LinkLabelMap = New System.Windows.Forms.LinkLabel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ButtonRunninStatus = New System.Windows.Forms.Button()
+        Me.ButtonRunningStatus = New System.Windows.Forms.Button()
         Me.ButtonInternetStatus = New System.Windows.Forms.Button()
         Me.ButtonResetLogincount = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -37,7 +37,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.RichTextBoxHTTPresponse = New System.Windows.Forms.RichTextBox()
         Me.ButtonStartStop = New System.Windows.Forms.Button()
         Me.contextExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.contextOpen = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,10 +45,11 @@ Partial Class Form1
         Me.ComboBoxAcctype = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ButtonAbout = New System.Windows.Forms.Button()
+        Me.PictureBoxBanner = New System.Windows.Forms.PictureBox()
+        Me.RichTextBoxHTTPresponse = New System.Windows.Forms.RichTextBox()
         Me.TextBoxLoginCount = New System.Windows.Forms.TextBox()
         Me.TextBoxPassword = New System.Windows.Forms.TextBox()
         Me.TextBoxEmail = New System.Windows.Forms.TextBox()
-        Me.PictureBoxBanner = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBoxBanner, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -82,14 +82,14 @@ Partial Class Form1
         Me.Label6.TabIndex = 62
         Me.Label6.Text = "Running:"
         '
-        'ButtonRunninStatus
+        'ButtonRunningStatus
         '
-        Me.ButtonRunninStatus.Enabled = False
-        Me.ButtonRunninStatus.Location = New System.Drawing.Point(258, 216)
-        Me.ButtonRunninStatus.Name = "ButtonRunninStatus"
-        Me.ButtonRunninStatus.Size = New System.Drawing.Size(29, 21)
-        Me.ButtonRunninStatus.TabIndex = 60
-        Me.ButtonRunninStatus.UseVisualStyleBackColor = True
+        Me.ButtonRunningStatus.Enabled = False
+        Me.ButtonRunningStatus.Location = New System.Drawing.Point(258, 216)
+        Me.ButtonRunningStatus.Name = "ButtonRunningStatus"
+        Me.ButtonRunningStatus.Size = New System.Drawing.Size(29, 21)
+        Me.ButtonRunningStatus.TabIndex = 60
+        Me.ButtonRunningStatus.UseVisualStyleBackColor = True
         '
         'ButtonInternetStatus
         '
@@ -177,15 +177,6 @@ Partial Class Form1
         Me.Label3.TabIndex = 50
         Me.Label3.Text = "Account Type:"
         '
-        'RichTextBoxHTTPresponse
-        '
-        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(105, 334)
-        Me.RichTextBoxHTTPresponse.Name = "RichTextBoxHTTPresponse"
-        Me.RichTextBoxHTTPresponse.ReadOnly = True
-        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(178, 21)
-        Me.RichTextBoxHTTPresponse.TabIndex = 48
-        Me.RichTextBoxHTTPresponse.Text = ""
-        '
         'ButtonStartStop
         '
         Me.ButtonStartStop.Location = New System.Drawing.Point(292, 216)
@@ -234,7 +225,7 @@ Partial Class Form1
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(149, 13)
         Me.Label5.TabIndex = 49
-        Me.Label5.Text = "BT Wi-Fi Autologin Service v5"
+        Me.Label5.Text = "BT Wi-Fi Autologin Service v6"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonAbout
@@ -245,6 +236,24 @@ Partial Class Form1
         Me.ButtonAbout.TabIndex = 65
         Me.ButtonAbout.Text = "About"
         Me.ButtonAbout.UseVisualStyleBackColor = True
+        '
+        'PictureBoxBanner
+        '
+        Me.PictureBoxBanner.Image = Global.BT_Wi_Fi_Autologin.My.Resources.Resources.Banner
+        Me.PictureBoxBanner.Location = New System.Drawing.Point(-8, -1)
+        Me.PictureBoxBanner.Name = "PictureBoxBanner"
+        Me.PictureBoxBanner.Size = New System.Drawing.Size(403, 211)
+        Me.PictureBoxBanner.TabIndex = 55
+        Me.PictureBoxBanner.TabStop = False
+        '
+        'RichTextBoxHTTPresponse
+        '
+        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(105, 334)
+        Me.RichTextBoxHTTPresponse.Name = "RichTextBoxHTTPresponse"
+        Me.RichTextBoxHTTPresponse.ReadOnly = True
+        Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(178, 21)
+        Me.RichTextBoxHTTPresponse.TabIndex = 48
+        Me.RichTextBoxHTTPresponse.Text = ""
         '
         'TextBoxLoginCount
         '
@@ -276,15 +285,6 @@ Partial Class Form1
         Me.TextBoxEmail.TabIndex = 45
         Me.TextBoxEmail.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.saveEmail
         '
-        'PictureBoxBanner
-        '
-        Me.PictureBoxBanner.Image = Global.BT_Wi_Fi_Autologin.My.Resources.Resources.Banner
-        Me.PictureBoxBanner.Location = New System.Drawing.Point(-8, -1)
-        Me.PictureBoxBanner.Name = "PictureBoxBanner"
-        Me.PictureBoxBanner.Size = New System.Drawing.Size(403, 211)
-        Me.PictureBoxBanner.TabIndex = 55
-        Me.PictureBoxBanner.TabStop = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -296,7 +296,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBoxLoginCount)
-        Me.Controls.Add(Me.ButtonRunninStatus)
+        Me.Controls.Add(Me.ButtonRunningStatus)
         Me.Controls.Add(Me.ButtonInternetStatus)
         Me.Controls.Add(Me.ButtonResetLogincount)
         Me.Controls.Add(Me.Label7)
@@ -331,7 +331,7 @@ Partial Class Form1
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBoxLoginCount As TextBox
-    Friend WithEvents ButtonRunninStatus As Button
+    Friend WithEvents ButtonRunningStatus As Button
     Friend WithEvents ButtonInternetStatus As Button
     Friend WithEvents ButtonResetLogincount As Button
     Friend WithEvents Label7 As Label
@@ -341,7 +341,6 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents RichTextBoxHTTPresponse As RichTextBox
     Friend WithEvents ButtonStartStop As Button
     Friend WithEvents TextBoxPassword As TextBox
     Friend WithEvents TextBoxEmail As TextBox
@@ -353,4 +352,5 @@ Partial Class Form1
     Friend WithEvents ComboBoxAcctype As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents ButtonAbout As Button
+    Friend WithEvents RichTextBoxHTTPresponse As RichTextBox
 End Class

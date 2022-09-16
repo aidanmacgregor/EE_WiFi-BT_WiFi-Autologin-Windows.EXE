@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("BT Wi-Fi Autologin Service")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("BT Wi-Fi Autologin Service")>
-<Assembly: AssemblyCopyright("Copyright © August 2022")>
+<Assembly: AssemblyCopyright("Copyright © September 2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("5.0.0.0")>
-<Assembly: AssemblyFileVersion("5.0.0.0")>
+<Assembly: AssemblyVersion("6.0.0.0")>
+<Assembly: AssemblyFileVersion("6.0.0.0")>

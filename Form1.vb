@@ -35,7 +35,7 @@ Public Class Form1
         '' Icon & Lights
         NotifyIcon1.Visible = True
         NotifyIcon1.Icon = My.Resources.TrayRED
-        ButtonRunninStatus.BackColor = Color.Red
+        ButtonRunningStatus.BackColor = Color.Red
 
         '' ComboBox Options
         Dim comboSource As New Dictionary(Of String, String) From {
@@ -90,7 +90,11 @@ Public Class Form1
 
     Private Sub ButtonStartStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonStartStop.Click
 
-        If ButtonStartStop.Text = "Start Service" Then
+        '' Button Disable & Please Wait 
+        ButtonStartStop.Enabled = False
+        ButtonStartStop.Text = "Please Wait..."
+
+        If ButtonRunningStatus.BackColor = Color.Red Then
 
             '' start backgroundworker process
             If MyBackgroundWorker.IsBusy = False Then
@@ -100,15 +104,12 @@ Public Class Form1
             End If
 
             '' Status Button Coulour
-            ButtonRunninStatus.BackColor = Color.Green
+            ButtonRunningStatus.BackColor = Color.Green
 
             '' Clear HTTP Response
             RichTextBoxHTTPresponse.Clear()
 
-            '' Change Button Function
-            ButtonStartStop.Text = "Stop Service"
-
-        ElseIf ButtonStartStop.Text = "Stop Service" Then
+        ElseIf ButtonRunningStatus.BackColor = Color.Green Then
 
             '' cancel bacgroundworker process (sets CancellationPending to True)
             MyBackgroundWorker.CancelAsync()
@@ -139,9 +140,7 @@ Public Class Form1
                         '' Internet Connection Status Indicators
                         ButtonInternetStatus.BackColor = Color.Red
                         NotifyIcon1.Icon = My.Resources.TrayRED
-
-                        '' Clear HTTP Request
-                        RichTextBoxHTTPresponse.Clear()
+                        RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)"
 
                         '' Post Data String
                         Dim postData As String = $"username={TextBoxEmail.Text}&password={TextBoxPassword.Text}"
@@ -187,6 +186,10 @@ Public Class Form1
 
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
 
+                                '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+                                MyBackgroundWorker.CancelAsync()
+                                Exit Do
+
                             End If
 
                         ElseIf CInt(keyAcctype) = 2 Then
@@ -224,6 +227,10 @@ Public Class Form1
                             ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
 
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
+
+                                '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+                                MyBackgroundWorker.CancelAsync()
+                                Exit Do
 
                             End If
 
@@ -263,8 +270,14 @@ Public Class Form1
 
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
 
+                                '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
+                                MyBackgroundWorker.CancelAsync()
+                                Exit Do
+
                             End If
+
                         End If
+
                     End If
 
                 Else
@@ -272,6 +285,8 @@ Public Class Form1
                     '' Internet Connection Status Indicators
                     ButtonInternetStatus.BackColor = Color.Green
                     NotifyIcon1.Icon = My.Resources.TrayGREEN
+                    ButtonStartStop.Text = "Stop Service"
+                    ButtonStartStop.Enabled = True
 
                     '' Wait Before Testing Internet Again (May Help Reduce Any False Positives)
                     Threading.Thread.Sleep(1000)
@@ -309,6 +324,8 @@ Public Class Form1
                 '' Internet Connection Status Indicators
                 ButtonInternetStatus.BackColor = Color.Red
                 NotifyIcon1.Icon = My.Resources.TrayRED
+                ButtonStartStop.Text = "Stop Service"
+                ButtonStartStop.Enabled = True
 
             End Try
 
@@ -319,52 +336,56 @@ Public Class Form1
 
     Private Sub MyBackgroundWorker_Completed(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs)
 
-        RichTextBoxHTTPresponse.Clear()
-
         '' Try & Catch Exeption To Avoid Crashes
         Try
 
-            Dim postData As String = ""
-            Dim tempCookies As New CookieContainer
-            Dim encoding As New UTF8Encoding
-            Dim byteData As Byte() = encoding.GetBytes(postData)
+            If RichTextBoxHTTPresponse.Text <> "Username/Password Error" Then
 
-            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://btwifi.com:8443/accountLogoff/home?confirmed=true"), HttpWebRequest)
-            postReq.Method = "POST"
-            postReq.KeepAlive = False
-            postReq.CookieContainer = tempCookies
-            postReq.ContentType = "application/x-www-form-urlencoded"
-            postReq.Referer = "https://google.com"
-            postReq.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; RV:26.0) Gecko/20100101 Firefox/26.0"
-            postReq.ContentLength = byteData.Length
+                RichTextBoxHTTPresponse.Clear()
 
-            Dim postreqstream As Stream = postReq.GetRequestStream()
-            postreqstream.Write(byteData, 0, byteData.Length)
-            postreqstream.Close()
-            Dim postresponse As HttpWebResponse
-            postresponse = DirectCast(postReq.GetResponse(), HttpWebResponse)
-            tempCookies.Add(postresponse.Cookies)
-            logincookie = tempCookies
-            Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
-            Dim thepage As String = postreqreader.ReadToEnd
+                Dim postData As String = ""
+                Dim tempCookies As New CookieContainer
+                Dim encoding As New UTF8Encoding
+                Dim byteData As Byte() = encoding.GetBytes(postData)
 
-            '' Temporary Write Response To Rich Text Box
-            RichTextBoxHTTPresponse.Text = thepage
+                Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://btwifi.com:8443/accountLogoff/home?confirmed=true"), HttpWebRequest)
+                postReq.Method = "POST"
+                postReq.KeepAlive = False
+                postReq.CookieContainer = tempCookies
+                postReq.ContentType = "application/x-www-form-urlencoded"
+                postReq.Referer = "https://google.com"
+                postReq.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; RV:26.0) Gecko/20100101 Firefox/26.0"
+                postReq.ContentLength = byteData.Length
 
-            '' Check Rich Text Box & Replace Withe Useful Message
-            If thepage.Contains("landing.htm") Then
+                Dim postreqstream As Stream = postReq.GetRequestStream()
+                postreqstream.Write(byteData, 0, byteData.Length)
+                postreqstream.Close()
+                Dim postresponse As HttpWebResponse
+                postresponse = DirectCast(postReq.GetResponse(), HttpWebResponse)
+                tempCookies.Add(postresponse.Cookies)
+                logincookie = tempCookies
+                Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
+                Dim thepage As String = postreqreader.ReadToEnd
 
-                RichTextBoxHTTPresponse.Text = "Logged Out"
+                '' Temporary Write Response To Rich Text Box
+                RichTextBoxHTTPresponse.Text = thepage
+
+                '' Check Rich Text Box & Replace Withe Useful Message
+                If thepage.Contains("landing.htm") Then
+
+                    RichTextBoxHTTPresponse.Text = "Logged Out"
+                End If
 
             End If
 
             '' Running & Internet Connection Status Indicators
-            ButtonRunninStatus.BackColor = Color.Red
+            ButtonRunningStatus.BackColor = Color.Red
             ButtonInternetStatus.BackColor = Color.Red
             NotifyIcon1.Icon = My.Resources.TrayRED
 
-            '' Change Button Function
+            '' Enable & Change Button Function
             ButtonStartStop.Text = "Start Service"
+            ButtonStartStop.Enabled = True
 
             '' Try & Catch Exeption To Avoid Crashes
         Catch ex As Exception
@@ -373,9 +394,12 @@ Public Class Form1
             RichTextBoxHTTPresponse.Text = "Log Out Error, Not BT Wi-Fi? (DNS) "
 
             '' Buttom, Running & Internet Connection Status Indicators
-            ButtonRunninStatus.BackColor = Color.Red
-            ButtonStartStop.Text = "Start Service"
+            ButtonRunningStatus.BackColor = Color.Red
             NotifyIcon1.Icon = My.Resources.TrayRED
+
+            '' Enable & Change Button Function
+            ButtonStartStop.Text = "Start Service"
+            ButtonStartStop.Enabled = True
 
         End Try
 

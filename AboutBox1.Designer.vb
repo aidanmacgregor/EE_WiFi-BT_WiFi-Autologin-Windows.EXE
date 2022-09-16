@@ -53,7 +53,7 @@ Partial Class AboutBox1
         Me.TextBoxVersion.ReadOnly = True
         Me.TextBoxVersion.Size = New System.Drawing.Size(165, 20)
         Me.TextBoxVersion.TabIndex = 2
-        Me.TextBoxVersion.Text = "5.0.0.0"
+        Me.TextBoxVersion.Text = "6.0.0.0"
         '
         'TextBoxBy
         '
@@ -71,7 +71,7 @@ Partial Class AboutBox1
         Me.TextBoxDate.ReadOnly = True
         Me.TextBoxDate.Size = New System.Drawing.Size(164, 20)
         Me.TextBoxDate.TabIndex = 4
-        Me.TextBoxDate.Text = "August 2022"
+        Me.TextBoxDate.Text = "September 2022"
         '
         'Label1
         '

@@ -28,6 +28,7 @@
  - Logoff URL is Run On Stop Service (About 10 Second Delay On BT Side Fr Logout To Stop Internet)
  - HTTP Post Request Used For Login & Logout
  - Complete rewrite, import should work work visual studio [[NEW v4]]
+ - Modified Behavour Causing Program Freeze After Waking From Sleep/Hibernate [[NEW v6]]
 
 
 # GUI

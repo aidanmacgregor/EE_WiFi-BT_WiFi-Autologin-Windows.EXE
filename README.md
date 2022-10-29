@@ -1,5 +1,3 @@
-# ![Winlogo48NEW](https://user-images.githubusercontent.com/11254983/173395338-8a7c71f5-caf0-45e8-bb6f-0574fd4ec867.png) BT-Wi-Fi-Autologin-Windows 
-
 
 # This Is Part Of The BT Wi-Fi Autologin Services Also Available For
 
@@ -10,6 +8,7 @@
  ### Available Here:
  https://github.com/aidanmacgregor/BT_Wi-fi_Autologin_-_OpenWrt_Windows.EXE_Linux_Android-Macrodroid
  
+ # ![Winlogo48NEW](https://user-images.githubusercontent.com/11254983/173395338-8a7c71f5-caf0-45e8-bb6f-0574fd4ec867.png) BT-Wi-Fi-Autologin-Windows 
  
 # Features:
 

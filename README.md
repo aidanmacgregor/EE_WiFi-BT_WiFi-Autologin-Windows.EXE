@@ -35,5 +35,5 @@
 ![BT Wi-Fi Windows App](https://user-images.githubusercontent.com/11254983/184173045-f6e5ce51-4128-44fb-9964-eadcf718cf71.png)
 
     
-# Windows Code & Downloads
+# Windows Downloads
 [Login Service](https://github.com/aidanmacgregor/BT-Wi-Fi-Autologin-Windows/releases)

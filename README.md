@@ -29,7 +29,7 @@
  - Complete rewrite, import should work work visual studio [[NEW v4]]
  - Modified Behavour Causing Program Freeze After Waking From Sleep/Hibernate [[NEW v6]]
 
-This is a VB.NET code for a Windows Forms application. It appears to be a tool for managing login sessions to a network service provided by BT (British Telecommunications).
+This is a VB.NET code for a Windows Forms application. This is a tool for managing login sessions to the BT Wi-Fi network service provided by BT (British Telecommunications).
 
 The code includes several declarations of functions from the "user32.dll" library, which are used to control the behavior of the application's window. It also includes a dictionary object that is used to populate a ComboBox with a list of options for the user to choose from.
 

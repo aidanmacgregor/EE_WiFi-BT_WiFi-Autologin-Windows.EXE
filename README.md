@@ -5,7 +5,7 @@
  - Linux
  - Android (& Chromebook)
  
- ### Available Here:
+ ### More information available here:
  https://github.com/aidanmacgregor/BTWi-Fi_Autologin_-_OpenWrt_Linux_ChromeOS_Android_Macrodroid_Windows.EXE
  
  # ![Winlogo48NEW](https://user-images.githubusercontent.com/11254983/173395338-8a7c71f5-caf0-45e8-bb6f-0574fd4ec867.png) BT-Wi-Fi-Autologin-Windows 

@@ -42,8 +42,7 @@ The code also includes several functions that handle HTTP requests and responses
 Finally, the code includes several event handlers that are executed in response to various actions, such as the form being minimized, the user closing the application, or the background worker process completing.
 
 # GUI
-![BT Wi-Fi Windows App](https://user-images.githubusercontent.com/11254983/184173045-f6e5ce51-4128-44fb-9964-eadcf718cf71.png)
-
+![WINDOWS SOFTWARE](https://github.com/user-attachments/assets/54c62644-5822-4eda-ae70-448bf3eb7f4d)
     
 # Windows Downloads
 [Login Service](https://github.com/aidanmacgregor/BT-Wi-Fi-Autologin-Windows/releases)

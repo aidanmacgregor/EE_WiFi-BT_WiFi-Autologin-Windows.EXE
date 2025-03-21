@@ -35,6 +35,7 @@ Partial Class Splash1
         Me.PictureBox1.Size = New System.Drawing.Size(265, 463)
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.UseWaitCursor = True
         '
         'Splash1
         '
@@ -50,6 +51,7 @@ Partial Class Splash1
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dialog1"
+        Me.UseWaitCursor = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

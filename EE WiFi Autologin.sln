@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34112.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EE WiFi Autologin", "EE WiFi Autologin.vbproj", "{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		rel2|Any CPU = rel2|Any CPU
+		rel2|x64 = rel2|x64
+		rel2|x86 = rel2|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|x64.ActiveCfg = Debug|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|x64.Build.0 = Debug|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|x86.ActiveCfg = Debug|x86
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Debug|x86.Build.0 = Debug|x86
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|Any CPU.ActiveCfg = rel2|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|Any CPU.Build.0 = rel2|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|x64.ActiveCfg = rel2|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|x64.Build.0 = rel2|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|x86.ActiveCfg = rel2|x86
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.rel2|x86.Build.0 = rel2|x86
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|x64.ActiveCfg = Release|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|x64.Build.0 = Release|x64
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|x86.ActiveCfg = Release|x86
+		{7CD552CB-088B-4CA8-9EAC-C8F1E7B4F5FF}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C1C387E-4E0D-42C0-97F1-CCCEE6F3172F}
+	EndGlobalSection
+EndGlobal

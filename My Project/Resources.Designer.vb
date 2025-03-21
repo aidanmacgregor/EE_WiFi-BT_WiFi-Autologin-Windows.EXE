@@ -81,31 +81,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property EE_pay_p_500_d11011c() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("EE-pay-p-500.d11011c", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property eewin3() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("eewin3", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property Icon() As System.Drawing.Icon
+        Friend ReadOnly Property EE_logo() As System.Drawing.Icon
             Get
-                Dim obj As Object = ResourceManager.GetObject("Icon", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("EE_logo", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
@@ -113,20 +93,20 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property icon_192() As System.Drawing.Bitmap
+        Friend ReadOnly Property eewin1() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("icon_192", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("eewin1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property IconS() As System.Drawing.Icon
+        Friend ReadOnly Property eewin3_copy() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("IconS", resourceCulture)
-                Return CType(obj,System.Drawing.Icon)
+                Dim obj As Object = ResourceManager.GetObject("eewin3_copy", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
@@ -143,9 +123,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
+        Friend ReadOnly Property TrayGREEN_bak() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("TrayGREEN_bak", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
         Friend ReadOnly Property TrayRED() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("TrayRED", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property TrayRED_bak() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("TrayRED_bak", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
             End Get
         End Property

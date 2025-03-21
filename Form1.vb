@@ -32,7 +32,7 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         '' Delay For Splash Screen
-        Thread.Sleep(1500)
+        Thread.Sleep(5000)
 
         '' Hide Crossthreading Error
         CheckForIllegalCrossThreadCalls = False
@@ -67,27 +67,21 @@ Public Class Form1
 
         '' Check For AutoRun Registery Key, Mark Checkbox & Start Service if key is present
         If CStr(regKey.GetValue(applicationName)) = """" & applicationPath & """" Then
-
             CheckBoxAutorun.Checked = True
-
         Else
-
             CheckBoxAutorun.Checked = False
-
         End If
 
         regKey.Close()
 
         '' Enable & set button text
         ButtonStartStop.Text = "Start Service"
-
         '' Check For Autorun & Minimise On Startup
         If CheckBoxAutorun.Checked = True Then
 
             Me.ButtonStartStop.PerformClick()
             Me.WindowState = FormWindowState.Minimized
             Me.ShowInTaskbar = False
-
         End If
 
     End Sub
@@ -100,48 +94,36 @@ Public Class Form1
         ButtonStartStop.Text = "Please Wait..."
 
         If ButtonRunningStatus.BackColor = Color.Red Then
-
             '' start backgroundworker process
             If MyBackgroundWorker.IsBusy = False Then
-
                 MyBackgroundWorker.RunWorkerAsync()
-
             End If
-
             '' Status Button Coulour
             ButtonRunningStatus.BackColor = Color.Green
-
             '' Clear HTTP Response
             RichTextBoxHTTPresponse.Clear()
-
         ElseIf ButtonRunningStatus.BackColor = Color.Green Then
-
             '' cancel bacgroundworker process (sets CancellationPending to True)
             MyBackgroundWorker.CancelAsync()
-
         End If
 
     End Sub
 
 
     Private Sub MyBackgroundWorker_Login_Loop(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
-
         '' start infinite loop
         Do
             '' Try & Catch Exeption To Avoid Crashes
             Try
-
                 '' Combo Box Read Selection
                 Dim keyAcctype As String = DirectCast(ComboBoxAcctype.SelectedItem, KeyValuePair(Of String, String)).Key
                 Dim valueAcctype As String = DirectCast(ComboBoxAcctype.SelectedItem, KeyValuePair(Of String, String)).Value
 
                 If My.Computer.Network.Ping("1.1.1.1") = False Then
-
                     '' Wait Before Testing Internet Again (May Help Reduce Any False Positives)
                     Threading.Thread.Sleep(500)
 
                     If My.Computer.Network.Ping("8.8.8.8") = False Then
-
                         '' Internet Connection Status Indicators
                         ButtonInternetStatus.BackColor = Color.Red
                         NotifyIcon1.Icon = My.Resources.TrayRED
@@ -178,23 +160,17 @@ Public Class Form1
 
                             '' Temporary Write Response To Rich Text Box
                             RichTextBoxHTTPresponse.Text = thepage
-
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
-
+                            If thepage.Contains("Log out") Then
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
                                 LoginCount += 1
                                 TextBoxLoginCount.Text = CStr(LoginCount)
-
                             ElseIf thepage.Contains("Please check you have entered your Username/Password correctly") Then
-
                                 RichTextBoxHTTPresponse.Text = "Username/Password Error"
-
                                 '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
                                 MyBackgroundWorker.CancelAsync()
                                 Exit Do
-
                             End If
 
                         ElseIf CInt(keyAcctype) = 2 Then
@@ -222,7 +198,7 @@ Public Class Form1
                             RichTextBoxHTTPresponse.Text = thepage
 
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
+                            If thepage.Contains("Log out") Then
 
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
@@ -264,7 +240,7 @@ Public Class Form1
                             RichTextBoxHTTPresponse.Text = thepage
 
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
+                            If thepage.Contains("Log out") Then
 
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
@@ -278,15 +254,11 @@ Public Class Form1
                                 '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
                                 MyBackgroundWorker.CancelAsync()
                                 Exit Do
-
                             End If
-
                         End If
-
                     End If
 
                 Else
-
                     '' Internet Connection Status Indicators
                     ButtonInternetStatus.BackColor = Color.Green
                     NotifyIcon1.Icon = My.Resources.TrayGREEN
@@ -301,7 +273,6 @@ Public Class Form1
                         RichTextBoxHTTPresponse.Clear()
 
                     End If
-
                     '' Listen For CancelAsync & Exit The Loop
                     If MyBackgroundWorker.CancellationPending = True Then
 
@@ -317,7 +288,6 @@ Public Class Form1
 
                 '' Listen For CancelAsync & Exit The Loop
                 If MyBackgroundWorker.CancellationPending = True Then
-
                     '' cancel bacgroundworker process First To Prevent Issues Running After Closing (sets CancellationPending to True)
                     MyBackgroundWorker.CancelAsync()
                     Exit Do
@@ -333,11 +303,9 @@ Public Class Form1
                 ButtonStartStop.Enabled = True
 
             End Try
-
         Loop
 
     End Sub
-
 
     Private Sub MyBackgroundWorker_Completed(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs)
 
@@ -396,7 +364,7 @@ Public Class Form1
         Catch ex As Exception
 
             '' Error Shows When Unable To Resolve BT Wi-Fi DNS
-            RichTextBoxHTTPresponse.Text = "Log Out Error, Not EE WiFi? (DNS) "
+            RichTextBoxHTTPresponse.Text = "Log Out Error, Not BT Wi-Fi? (DNS) "
 
             '' Buttom, Running & Internet Connection Status Indicators
             ButtonRunningStatus.BackColor = Color.Red
@@ -407,7 +375,6 @@ Public Class Form1
             ButtonStartStop.Enabled = True
 
         End Try
-
     End Sub
 
 
@@ -568,7 +535,7 @@ Public Class Form1
             '' Try & Catch Exeption To Avoid Crashes
             Try
 
-                Dim url As String = “https://info.btwifi.com:442/find/“
+                Dim url As String = “https://ee-wifi.ee.co.uk/public/ee/find/index.htm“
                 Process.Start(url)
 
             Catch ex As Exception
@@ -602,6 +569,17 @@ Public Class Form1
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
 
+    End Sub
+
+    '' Open WiFi Hotspot Settings Button
+    Private Sub ButtonHotspot_Click(sender As Object, e As EventArgs) Handles ButtonHotspot.Click
+        Try
+            ' Open WiFi settings using the process start
+            Process.Start("ms-settings:network-mobilehotspot")
+        Catch ex As Exception
+            ' Handle any exceptions that may occur
+            MessageBox.Show("Error opening WiFi Hotspot settings: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class
 

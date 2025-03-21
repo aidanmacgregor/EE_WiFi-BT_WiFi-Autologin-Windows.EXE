@@ -32,7 +32,18 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.BT_Wi_Fi_Autologin.Form1
+            Me.MainForm = Global.EE_WiFi_Autologin.Form1
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        Protected Overrides Sub OnCreateSplashScreen()
+            Me.SplashScreen = Global.EE_WiFi_Autologin.Splash1
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+            Me.MinimumSplashScreenDisplayTime = 0
+            Return MyBase.OnInitialize(commandLineArgs)
+        End Function
     End Class
 End Namespace

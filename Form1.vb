@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.Text
 Imports System.IO
+Imports System.Threading
 
 
 Public Class Form1
@@ -29,6 +30,10 @@ Public Class Form1
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        '' Delay For Splash Screen
+        Thread.Sleep(1500)
+
         '' Hide Crossthreading Error
         CheckForIllegalCrossThreadCalls = False
 
@@ -140,7 +145,7 @@ Public Class Form1
                         '' Internet Connection Status Indicators
                         ButtonInternetStatus.BackColor = Color.Red
                         NotifyIcon1.Icon = My.Resources.TrayRED
-                        RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)"
+                        RichTextBoxHTTPresponse.Text = "Ping Error/Not EE WiFi? (DNS)"
 
                         '' Post Data String
                         Dim postData As String = $"username={TextBoxEmail.Text}&password={TextBoxPassword.Text}"
@@ -152,7 +157,7 @@ Public Class Form1
 
                         If CInt(keyAcctype) = 1 Then
 
-                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://btwifi.com:8443/tbbLogon"), HttpWebRequest)
+                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://ee-wifi.ee.co.uk/tbbLogon"), HttpWebRequest)
                             postReq.Method = "POST"
                             postReq.KeepAlive = False
                             postReq.CookieContainer = tempCookies
@@ -175,7 +180,7 @@ Public Class Form1
                             RichTextBoxHTTPresponse.Text = thepage
 
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
 
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
@@ -194,7 +199,7 @@ Public Class Form1
 
                         ElseIf CInt(keyAcctype) = 2 Then
 
-                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://www.btwifi.com:8443/ante?partnerNetwork=btb"), HttpWebRequest)
+                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://ee-wifi.ee.co.uk/ante?partnerNetwork=btb"), HttpWebRequest)
                             postReq.Method = "POST"
                             postReq.KeepAlive = False
                             postReq.CookieContainer = tempCookies
@@ -217,7 +222,7 @@ Public Class Form1
                             RichTextBoxHTTPresponse.Text = thepage
 
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
 
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
@@ -236,7 +241,7 @@ Public Class Form1
 
                         ElseIf CInt(keyAcctype) = 3 Then
 
-                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://www.btwifi.com:8443/ante"), HttpWebRequest)
+                            Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://ee-wifi.ee.co.uk/ante"), HttpWebRequest)
                             postReq.Method = "POST"
                             postReq.KeepAlive = False
                             postReq.CookieContainer = tempCookies
@@ -259,7 +264,7 @@ Public Class Form1
                             RichTextBoxHTTPresponse.Text = thepage
 
                             '' Check Rich Text Box & Replace Withe Useful Message
-                            If thepage.Contains("You&#8217;re now logged on to BT Wi-Fi") Then
+                            If thepage.Contains("You&#8217;re now logged on to EE WiFi") Then
 
                                 RichTextBoxHTTPresponse.Text = ("Logged In Sucsesfully " & TimeString)
                                 LoginCount = Integer.Parse(TextBoxLoginCount.Text)
@@ -291,7 +296,7 @@ Public Class Form1
                     '' Wait Before Testing Internet Again (May Help Reduce Any False Positives)
                     Threading.Thread.Sleep(1000)
 
-                    If RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)" Then
+                    If RichTextBoxHTTPresponse.Text = "Ping Error/Not EE WiFi? (DNS)" Then
 
                         RichTextBoxHTTPresponse.Clear()
 
@@ -319,7 +324,7 @@ Public Class Form1
 
                 End If
 
-                RichTextBoxHTTPresponse.Text = "Ping Error/Not BT Wi-Fi? (DNS)"
+                RichTextBoxHTTPresponse.Text = "Ping Error/Not EE WiFi? (DNS)"
 
                 '' Internet Connection Status Indicators
                 ButtonInternetStatus.BackColor = Color.Red
@@ -348,7 +353,7 @@ Public Class Form1
                 Dim encoding As New UTF8Encoding
                 Dim byteData As Byte() = encoding.GetBytes(postData)
 
-                Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://btwifi.com:8443/accountLogoff/home?confirmed=true"), HttpWebRequest)
+                Dim postReq As HttpWebRequest = DirectCast(WebRequest.Create("https://ee-wifi.ee.co.uk/accountLogoff/home?confirmed=true"), HttpWebRequest)
                 postReq.Method = "POST"
                 postReq.KeepAlive = False
                 postReq.CookieContainer = tempCookies
@@ -391,7 +396,7 @@ Public Class Form1
         Catch ex As Exception
 
             '' Error Shows When Unable To Resolve BT Wi-Fi DNS
-            RichTextBoxHTTPresponse.Text = "Log Out Error, Not BT Wi-Fi? (DNS) "
+            RichTextBoxHTTPresponse.Text = "Log Out Error, Not EE WiFi? (DNS) "
 
             '' Buttom, Running & Internet Connection Status Indicators
             ButtonRunningStatus.BackColor = Color.Red
@@ -424,7 +429,7 @@ Public Class Form1
         If Me.WindowState = FormWindowState.Minimized Then
 
             Me.Show()
-            FocusWindow("BT Wi-Fi Autologin Service", Nothing)
+            FocusWindow("EE WiFi Autologin Service", Nothing)
             Me.ShowInTaskbar = True
 
         Else
@@ -451,7 +456,7 @@ Public Class Form1
     '' Handle Context Menu Open (Right CLick System Tray > Open)
     Private Sub ContextOpen_Click(sender As Object, e As EventArgs) Handles contextOpen.Click
 
-        FocusWindow("BT Wi-Fi Autologin Service", Nothing)
+        FocusWindow("EE WiFi Autologin Service", Nothing)
         Me.ShowInTaskbar = True
 
     End Sub
@@ -557,7 +562,7 @@ Public Class Form1
     '' Handle Map Opening
     Private Sub LinkLabelMap_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelMap.LinkClicked
 
-        Dim ask As MsgBoxResult = MsgBox("Open BT Wi-Fi Map?", MsgBoxStyle.YesNo)
+        Dim ask As MsgBoxResult = MsgBox("Open EE WiFi Map?", MsgBoxStyle.YesNo)
 
         If ask = MsgBoxResult.Yes Then
             '' Try & Catch Exeption To Avoid Crashes
@@ -568,7 +573,7 @@ Public Class Form1
 
             Catch ex As Exception
 
-                MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+                MessageBox.Show("EE WiFi Autologin Service --ERROR OPENING BROWSER--")
 
             End Try
         End If
@@ -591,7 +596,12 @@ Public Class Form1
 
     End Sub
 
+    Private Sub PictureBoxBanner_Click(sender As Object, e As EventArgs) Handles PictureBoxBanner.Click
 
+    End Sub
 
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
 End Class
 

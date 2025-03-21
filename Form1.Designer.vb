@@ -57,9 +57,10 @@ Partial Class Form1
         'LinkLabelMap
         '
         Me.LinkLabelMap.AutoSize = True
-        Me.LinkLabelMap.Location = New System.Drawing.Point(9, 9)
+        Me.LinkLabelMap.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LinkLabelMap.Location = New System.Drawing.Point(317, 6)
         Me.LinkLabelMap.Name = "LinkLabelMap"
-        Me.LinkLabelMap.Size = New System.Drawing.Size(55, 13)
+        Me.LinkLabelMap.Size = New System.Drawing.Size(62, 14)
         Me.LinkLabelMap.TabIndex = 64
         Me.LinkLabelMap.TabStop = True
         Me.LinkLabelMap.Text = "Wi-Fi Map"
@@ -67,27 +68,29 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(206, 243)
+        Me.Label8.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label8.Location = New System.Drawing.Point(206, 187)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(46, 13)
+        Me.Label8.Size = New System.Drawing.Size(49, 14)
         Me.Label8.TabIndex = 63
         Me.Label8.Text = "Internet:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(206, 220)
+        Me.Label6.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label6.Location = New System.Drawing.Point(203, 164)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(50, 13)
+        Me.Label6.Size = New System.Drawing.Size(52, 14)
         Me.Label6.TabIndex = 62
         Me.Label6.Text = "Running:"
         '
         'ButtonRunningStatus
         '
         Me.ButtonRunningStatus.Enabled = False
-        Me.ButtonRunningStatus.Location = New System.Drawing.Point(258, 216)
+        Me.ButtonRunningStatus.Location = New System.Drawing.Point(258, 160)
         Me.ButtonRunningStatus.Name = "ButtonRunningStatus"
-        Me.ButtonRunningStatus.Size = New System.Drawing.Size(29, 21)
+        Me.ButtonRunningStatus.Size = New System.Drawing.Size(28, 21)
         Me.ButtonRunningStatus.TabIndex = 60
         Me.ButtonRunningStatus.UseVisualStyleBackColor = True
         '
@@ -95,17 +98,18 @@ Partial Class Form1
         '
         Me.ButtonInternetStatus.Enabled = False
         Me.ButtonInternetStatus.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonInternetStatus.Location = New System.Drawing.Point(258, 239)
+        Me.ButtonInternetStatus.Location = New System.Drawing.Point(258, 183)
         Me.ButtonInternetStatus.Name = "ButtonInternetStatus"
-        Me.ButtonInternetStatus.Size = New System.Drawing.Size(29, 21)
+        Me.ButtonInternetStatus.Size = New System.Drawing.Size(28, 21)
         Me.ButtonInternetStatus.TabIndex = 59
         Me.ButtonInternetStatus.UseVisualStyleBackColor = True
         '
         'ButtonResetLogincount
         '
-        Me.ButtonResetLogincount.Location = New System.Drawing.Point(292, 334)
+        Me.ButtonResetLogincount.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.ButtonResetLogincount.Location = New System.Drawing.Point(292, 278)
         Me.ButtonResetLogincount.Name = "ButtonResetLogincount"
-        Me.ButtonResetLogincount.Size = New System.Drawing.Size(90, 21)
+        Me.ButtonResetLogincount.Size = New System.Drawing.Size(87, 21)
         Me.ButtonResetLogincount.TabIndex = 58
         Me.ButtonResetLogincount.Text = "Reset Count"
         Me.ButtonResetLogincount.UseVisualStyleBackColor = True
@@ -113,18 +117,20 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(289, 292)
+        Me.Label7.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label7.Location = New System.Drawing.Point(289, 234)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(67, 13)
+        Me.Label7.Size = New System.Drawing.Size(72, 14)
         Me.Label7.TabIndex = 57
         Me.Label7.Text = "Login Count:"
         '
         'CheckBoxAutorun
         '
         Me.CheckBoxAutorun.AutoSize = True
-        Me.CheckBoxAutorun.Location = New System.Drawing.Point(292, 266)
+        Me.CheckBoxAutorun.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.CheckBoxAutorun.Location = New System.Drawing.Point(292, 210)
         Me.CheckBoxAutorun.Name = "CheckBoxAutorun"
-        Me.CheckBoxAutorun.Size = New System.Drawing.Size(88, 17)
+        Me.CheckBoxAutorun.Size = New System.Drawing.Size(91, 18)
         Me.CheckBoxAutorun.TabIndex = 56
         Me.CheckBoxAutorun.Text = "Run On Boot"
         Me.CheckBoxAutorun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -133,9 +139,10 @@ Partial Class Form1
         'LinkLabelAidanMacgregor
         '
         Me.LinkLabelAidanMacgregor.AutoSize = True
-        Me.LinkLabelAidanMacgregor.Location = New System.Drawing.Point(276, 22)
+        Me.LinkLabelAidanMacgregor.Font = New System.Drawing.Font("BT Curve App", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LinkLabelAidanMacgregor.Location = New System.Drawing.Point(256, 32)
         Me.LinkLabelAidanMacgregor.Name = "LinkLabelAidanMacgregor"
-        Me.LinkLabelAidanMacgregor.Size = New System.Drawing.Size(106, 13)
+        Me.LinkLabelAidanMacgregor.Size = New System.Drawing.Size(123, 15)
         Me.LinkLabelAidanMacgregor.TabIndex = 54
         Me.LinkLabelAidanMacgregor.TabStop = True
         Me.LinkLabelAidanMacgregor.Tag = ""
@@ -144,44 +151,49 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 337)
+        Me.Label4.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label4.Location = New System.Drawing.Point(10, 281)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 13)
+        Me.Label4.Size = New System.Drawing.Size(92, 14)
         Me.Label4.TabIndex = 53
         Me.Label4.Text = "HTTP Response:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 292)
+        Me.Label2.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 236)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(56, 13)
+        Me.Label2.Size = New System.Drawing.Size(59, 14)
         Me.Label2.TabIndex = 52
         Me.Label2.Text = "Password:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 253)
+        Me.Label1.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 196)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 13)
+        Me.Label1.Size = New System.Drawing.Size(39, 14)
         Me.Label1.TabIndex = 51
         Me.Label1.Text = "Email:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 213)
+        Me.Label3.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label3.Location = New System.Drawing.Point(12, 154)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.Size = New System.Drawing.Size(80, 14)
         Me.Label3.TabIndex = 50
         Me.Label3.Text = "Account Type:"
         '
         'ButtonStartStop
         '
-        Me.ButtonStartStop.Location = New System.Drawing.Point(292, 216)
+        Me.ButtonStartStop.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.ButtonStartStop.Location = New System.Drawing.Point(292, 160)
         Me.ButtonStartStop.Name = "ButtonStartStop"
-        Me.ButtonStartStop.Size = New System.Drawing.Size(90, 44)
+        Me.ButtonStartStop.Size = New System.Drawing.Size(87, 44)
         Me.ButtonStartStop.TabIndex = 47
         Me.ButtonStartStop.Text = "Loading..."
         Me.ButtonStartStop.UseVisualStyleBackColor = True
@@ -208,47 +220,53 @@ Partial Class Form1
         '
         Me.NotifyIcon1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon1.Text = "BT Wi-Fi Autologin Service"
+        Me.NotifyIcon1.Text = "EE WiFi Autologin Service"
         '
         'ComboBoxAcctype
         '
+        Me.ComboBoxAcctype.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.ComboBoxAcctype.FormattingEnabled = True
-        Me.ComboBoxAcctype.Location = New System.Drawing.Point(12, 229)
+        Me.ComboBoxAcctype.Location = New System.Drawing.Point(12, 171)
         Me.ComboBoxAcctype.Name = "ComboBoxAcctype"
-        Me.ComboBoxAcctype.Size = New System.Drawing.Size(184, 21)
+        Me.ComboBoxAcctype.Size = New System.Drawing.Size(185, 22)
         Me.ComboBoxAcctype.TabIndex = 0
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(233, 9)
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("BT Curve App", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(7, 6)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(149, 13)
+        Me.Label5.Size = New System.Drawing.Size(305, 26)
         Me.Label5.TabIndex = 49
-        Me.Label5.Text = "BT Wi-Fi Autologin Service v6"
+        Me.Label5.Text = "EE WiFi Autologin Service v7"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonAbout
         '
-        Me.ButtonAbout.Location = New System.Drawing.Point(338, 38)
+        Me.ButtonAbout.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.ButtonAbout.Location = New System.Drawing.Point(242, 109)
         Me.ButtonAbout.Name = "ButtonAbout"
-        Me.ButtonAbout.Size = New System.Drawing.Size(44, 23)
+        Me.ButtonAbout.Size = New System.Drawing.Size(137, 36)
         Me.ButtonAbout.TabIndex = 65
         Me.ButtonAbout.Text = "About"
         Me.ButtonAbout.UseVisualStyleBackColor = True
         '
         'PictureBoxBanner
         '
-        Me.PictureBoxBanner.Image = Global.BT_Wi_Fi_Autologin.My.Resources.Resources.Banner
-        Me.PictureBoxBanner.Location = New System.Drawing.Point(-8, -1)
+        Me.PictureBoxBanner.Image = Global.EE_WiFi_Autologin.My.Resources.Resources.eewin3
+        Me.PictureBoxBanner.Location = New System.Drawing.Point(12, 50)
         Me.PictureBoxBanner.Name = "PictureBoxBanner"
-        Me.PictureBoxBanner.Size = New System.Drawing.Size(403, 211)
+        Me.PictureBoxBanner.Size = New System.Drawing.Size(367, 111)
         Me.PictureBoxBanner.TabIndex = 55
         Me.PictureBoxBanner.TabStop = False
         '
         'RichTextBoxHTTPresponse
         '
-        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(105, 334)
+        Me.RichTextBoxHTTPresponse.BackColor = System.Drawing.Color.White
+        Me.RichTextBoxHTTPresponse.Location = New System.Drawing.Point(108, 278)
         Me.RichTextBoxHTTPresponse.Name = "RichTextBoxHTTPresponse"
         Me.RichTextBoxHTTPresponse.ReadOnly = True
         Me.RichTextBoxHTTPresponse.Size = New System.Drawing.Size(178, 21)
@@ -257,40 +275,45 @@ Partial Class Form1
         '
         'TextBoxLoginCount
         '
+        Me.TextBoxLoginCount.BackColor = System.Drawing.Color.White
         Me.TextBoxLoginCount.Cursor = System.Windows.Forms.Cursors.Default
-        Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxLoginCount.Location = New System.Drawing.Point(292, 308)
+        Me.TextBoxLoginCount.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.EE_WiFi_Autologin.My.MySettings.Default, "SaveLoginCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxLoginCount.Font = New System.Drawing.Font("BT Curve App", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.TextBoxLoginCount.Location = New System.Drawing.Point(292, 251)
         Me.TextBoxLoginCount.Name = "TextBoxLoginCount"
         Me.TextBoxLoginCount.ReadOnly = True
-        Me.TextBoxLoginCount.Size = New System.Drawing.Size(90, 20)
+        Me.TextBoxLoginCount.Size = New System.Drawing.Size(87, 21)
         Me.TextBoxLoginCount.TabIndex = 61
-        Me.TextBoxLoginCount.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.SaveLoginCount
+        Me.TextBoxLoginCount.Text = Global.EE_WiFi_Autologin.My.MySettings.Default.SaveLoginCount
         '
         'TextBoxPassword
         '
-        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "savePassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPassword.Location = New System.Drawing.Point(12, 308)
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.EE_WiFi_Autologin.My.MySettings.Default, "savePassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.Location = New System.Drawing.Point(12, 253)
         Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(271, 20)
+        Me.TextBoxPassword.Size = New System.Drawing.Size(274, 20)
         Me.TextBoxPassword.TabIndex = 46
-        Me.TextBoxPassword.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.savePassword
+        Me.TextBoxPassword.Text = Global.EE_WiFi_Autologin.My.MySettings.Default.savePassword
         Me.TextBoxPassword.UseSystemPasswordChar = True
         '
         'TextBoxEmail
         '
-        Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BT_Wi_Fi_Autologin.My.MySettings.Default, "saveEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxEmail.Location = New System.Drawing.Point(12, 269)
+        Me.TextBoxEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.EE_WiFi_Autologin.My.MySettings.Default, "saveEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxEmail.Location = New System.Drawing.Point(12, 213)
         Me.TextBoxEmail.Name = "TextBoxEmail"
-        Me.TextBoxEmail.Size = New System.Drawing.Size(271, 20)
+        Me.TextBoxEmail.Size = New System.Drawing.Size(274, 20)
         Me.TextBoxEmail.TabIndex = 45
-        Me.TextBoxEmail.Text = Global.BT_Wi_Fi_Autologin.My.MySettings.Default.saveEmail
+        Me.TextBoxEmail.Text = Global.EE_WiFi_Autologin.My.MySettings.Default.saveEmail
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(391, 366)
+        Me.ClientSize = New System.Drawing.Size(391, 310)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.LinkLabelAidanMacgregor)
+        Me.Controls.Add(Me.ComboBoxAcctype)
         Me.Controls.Add(Me.ButtonAbout)
         Me.Controls.Add(Me.LinkLabelMap)
         Me.Controls.Add(Me.Label8)
@@ -300,9 +323,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ButtonInternetStatus)
         Me.Controls.Add(Me.ButtonResetLogincount)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CheckBoxAutorun)
-        Me.Controls.Add(Me.LinkLabelAidanMacgregor)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -312,14 +333,14 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBoxPassword)
         Me.Controls.Add(Me.TextBoxEmail)
         Me.Controls.Add(Me.PictureBoxBanner)
-        Me.Controls.Add(Me.ComboBoxAcctype)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
-        Me.Text = "BT Wi-Fi Autologin Service"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "EE WiFi Autologin Service"
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBoxBanner, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

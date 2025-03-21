@@ -12,7 +12,7 @@
             Dim url As String = “https://www.buymeacoffee.com/aidanmacgregor“
             Process.Start(url)
         Catch ex As Exception
-            MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+            MessageBox.Show("EE WiFi Autologin Service --ERROR OPENING BROWSER--")
         End Try
 
     End Sub
@@ -25,11 +25,12 @@
             Dim url As String = “https://linktr.ee/aidanmacgregor“
             Process.Start(url)
         Catch ex As Exception
-            MessageBox.Show("BT Wi-Fi Autologin Service --ERROR OPENING BROWSER--")
+            MessageBox.Show("EE WiFi Autologin Service --ERROR OPENING BROWSER--")
         End Try
 
     End Sub
 
+    Private Sub TextBoxVersion_TextChanged(sender As Object, e As EventArgs) Handles TextBoxVersion.TextChanged
 
-
+    End Sub
 End Class

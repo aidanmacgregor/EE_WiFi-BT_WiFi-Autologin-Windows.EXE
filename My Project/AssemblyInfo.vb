@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("BT Wi-Fi Autologin Service")>
-<Assembly: AssemblyDescription("BT Wi-Fi Autologin Service")>
+<Assembly: AssemblyTitle("EE WiFi Autologin Service")>
+<Assembly: AssemblyDescription("EE WiFi Autologin Service")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("BT Wi-Fi Autologin Service")>
-<Assembly: AssemblyCopyright("Copyright © September 2022")>
+<Assembly: AssemblyProduct("EE WiFi Autologin Service")>
+<Assembly: AssemblyCopyright("Copyright © December 2023")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("6.0.0.0")>
-<Assembly: AssemblyFileVersion("6.0.0.0")>
+<Assembly: AssemblyVersion("7.0.0.0")>
+<Assembly: AssemblyFileVersion("7.0.0.0")>

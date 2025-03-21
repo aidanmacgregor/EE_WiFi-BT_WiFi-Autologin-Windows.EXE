@@ -44,7 +44,7 @@ Partial Class AboutBox1
         Me.TextBoxName.ReadOnly = True
         Me.TextBoxName.Size = New System.Drawing.Size(165, 20)
         Me.TextBoxName.TabIndex = 1
-        Me.TextBoxName.Text = "BT Wi-Fi Autologin Service"
+        Me.TextBoxName.Text = "EE WiFi Autologin Service"
         '
         'TextBoxVersion
         '
@@ -53,7 +53,7 @@ Partial Class AboutBox1
         Me.TextBoxVersion.ReadOnly = True
         Me.TextBoxVersion.Size = New System.Drawing.Size(165, 20)
         Me.TextBoxVersion.TabIndex = 2
-        Me.TextBoxVersion.Text = "6.0.0.0"
+        Me.TextBoxVersion.Text = "7.0.0.0"
         '
         'TextBoxBy
         '
@@ -129,7 +129,7 @@ Partial Class AboutBox1
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.BT_Wi_Fi_Autologin.My.Resources.Resources.AboutAM
+        Me.PictureBox1.Image = Global.EE_WiFi_Autologin.My.Resources.Resources.AboutAM
         Me.PictureBox1.InitialImage = Nothing
         Me.PictureBox1.Location = New System.Drawing.Point(-17, -23)
         Me.PictureBox1.Name = "PictureBox1"
@@ -142,7 +142,7 @@ Partial Class AboutBox1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(360, 200)
         Me.Controls.Add(Me.ButtonOtherStuff)
         Me.Controls.Add(Me.ButtonDonate)
@@ -163,7 +163,7 @@ Partial Class AboutBox1
         Me.Padding = New System.Windows.Forms.Padding(9)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "About BT Wi-Fi Autologin Service"
+        Me.Text = "About EE WiFi Autologin Service"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

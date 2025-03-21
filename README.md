@@ -28,6 +28,8 @@
  - HTTP Post Request Used For Login & Logout
  - Complete rewrite, import should work work visual studio [[NEW v4]]
  - Modified Behavour Causing Program Freeze After Waking From Sleep/Hibernate [[NEW v6]]
+ - Button To Open WiFi Hotspot Settings [[NEW v7]]
+ - Advanced Settings (Hotspot, Network & Erase Account options) [[NEW v7]]
 
 This is a VB.NET code for a Windows Forms application. This is a tool for managing login sessions to the BT Wi-Fi network service provided by BT (British Telecommunications).
 
